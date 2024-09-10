@@ -10,7 +10,7 @@ export const executeCheckEmailService = (email) =>
     apiClient.get(`/api/members/${email}`);
 
 export const executeGetLatestIndexData = () =>
-    apiClient.get(`/api/index/latest-multiple`);
+    apiClient.get(`/api/v1/index/latest-multiple`);
 
 
 export const executeGetWeeklyStocksForList = () =>
