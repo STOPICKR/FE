@@ -1,9 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import NavBox from "../../components/NavBox";
-import aiImage from "../../../../../images/ai_character.png";
+import stock_character from "../../../../../images/stock_character.png"
+import {useMediaQuery} from "react-responsive";
+
+const wrapTextWithLang = (text) => {
+    return text.split('\n').map((line, index) => (
+        <React.Fragment key={index}>
+            {line.split('').map((char, index) => {
+                const isKorean = /[가-힣]/.test(char);
+                const lang = isKorean ? 'ko' : 'en';
+                return <span key={index} lang={lang}>{char}</span>;
+            })}
+            <br/>
+        </React.Fragment>
+    ));
+};
 
 const NavSectionWrapper = styled.div`
+    padding: 0 1em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,39 +26,117 @@ const NavSectionWrapper = styled.div`
 
 const NavSectionContainer = styled.div`
     display: flex;
-    width: 100.125rem;
-    padding: 3.75rem 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 1.875rem;
 `;
 
+const MobileNavSectionContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`;
+
+const NavTitle = styled.p`
+    font-size: 3rem;
+    white-space: pre-line;
+    font-weight: bold;
+    line-height: 1.2;
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
+`;
+
+const MobileNavTitle = styled.p`
+    font-size: 1.1em;
+    white-space: pre-line;
+    font-weight: bold;
+    line-height: 1.2;
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
+`;
+
+const NavContent = styled.p`
+    font-size: 1.25rem;
+    white-space: pre-line;
+    line-height: 1.2;
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
+`;
+
+const MobileNavContent = styled.p`
+    font-size: 0.5em;
+    white-space: pre-line;
+    line-height: 1.2;
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
+`;
+
+const LogoImage = styled.img`
+    width: 25rem;
+    bottom: 2.5rem;
+    right: 2.5rem;
+`;
+
+const MobileLogoImage = styled.img`
+    width: 10rem;
+    bottom: 2.5em;
+    right: 2.5em;
+`;
+
 const NavSection = () => {
+
+    const isOverTablet = useMediaQuery({
+        query: "(min-width:720px)"
+    });
+    const isMobile = useMediaQuery({
+        query: "(max-width:720px)"
+    });
+
     return (
-        <NavSectionWrapper>
-            <NavSectionContainer>
-                <NavBox
-                    navSubTitle={"AI 모델 성과"}
-                    navTitle={"AI 모델 성과 및\n수익률 분석"}
-                    navContent={"딥 Q-Learning 알고리즘을 통해\n얻은 성과를 확인해보세요"}
-                    navBackgroundColor={"#264653"}
-                    navButton={"서비스 자세히보기"}
-                    navImage={aiImage}
-                />
-                <NavBox
-                    navSubTitle={"주식 시장 전망"}
-                    navTitle={"24년 7월\n한국 주식 시장"}
-                    navContent={"서비스에서 선정된 자산별 현황을\n확인해보세요"}
-                    navBackgroundColor={"#E8C36A"}
-                    navButton={"자세히보기"}
-                />
-                <NavBox
-                    navSubTitle={"포트폴리오 관리"}
-                    navTitle={"개인 맞춤형 포트폴리오"}
-                    navContent={"당신의 포트폴리오를\n효율적으로 관리하세요"}
-                    navBackgroundColor={"#F3A261"}
-                    navButton={"로그인하러가기"}
-                />
-            </NavSectionContainer>
-        </NavSectionWrapper>
+        <>
+            {isOverTablet &&
+                <NavSectionWrapper>
+                    <NavSectionContainer>
+                        <div>
+                            <NavTitle style={{color: "#1454FF"}}>{wrapTextWithLang("어려운 주식 투자 선택")}</NavTitle>
+                            <NavTitle style={{paddingBottom: "1rem"}}>{wrapTextWithLang("AI 기술과 함께")}</NavTitle>
+                            <NavContent>{wrapTextWithLang("AI 모델 성과 및 수익률 분석\n서비스에서 선정된 자산별 현황을 확인해보세요")}</NavContent>
+                        </div>
+                        <LogoImage src={stock_character} alt={"image"}/>
+                    </NavSectionContainer>
+                </NavSectionWrapper>
+            }
+            {isMobile &&
+                <NavSectionWrapper>
+                    <MobileNavSectionContainer>
+                        <div>
+                            <MobileNavTitle style={{color: "#1454FF"}}>{wrapTextWithLang("어려운 주식 투자 선택")}</MobileNavTitle>
+                            <MobileNavTitle style={{paddingBottom: "0.6rem"}}>{wrapTextWithLang("AI 기술과 함께")}</MobileNavTitle>
+                            <MobileNavContent>{wrapTextWithLang("AI 모델 성과 및 수익률 분석\n서비스에서 선정된 자산별 현황을 확인해보세요")}</MobileNavContent>
+                        </div>
+                        <MobileLogoImage src={stock_character} alt={"image"}/>
+                    </MobileNavSectionContainer>
+                </NavSectionWrapper>
+            }
+        </>
     );
 };
 

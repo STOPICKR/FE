@@ -1,68 +1,111 @@
 import React from "react";
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
+import logo from "../../../images/logo.png"
+import {useMediaQuery} from "react-responsive";
 
 const HeaderWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #326AF3;
     opacity: 0.8;
+    border-bottom: 1px solid;
+    border-bottom-color: whitesmoke;
 `;
 
 const HeaderContainer = styled.div`
     display: flex;
-    height: 100px;
+    height: 4em;
     justify-content: space-between;
     align-items: center;
-    width: 100.125rem;
+    width: 70.625em;
+    padding: 0 1em;
 `;
 
-const Title = styled.div`
-    color: white;
-    font-family: Inter;
-    font-size: 2.25rem;
-    font-weight: bold;
-    cursor: pointer;
+const MobileHeaderContainer = styled.div`
+    display: flex;
+    height: 3em;
+    justify-content: space-between;
+    align-items: center;
+    width: 70.625em;
+    padding: 0 1em;
 `;
 
 const NavBox = styled.div`
     display: flex;
-    gap: 30px;
+    gap: 1em;
 `;
 
 const Nav = styled.div`
     font-family: pretendard;
-    font-size: 1.2rem;
-    color: white;
+    font-size: 1em;
+    font-weight: bold;
     cursor: pointer;
 `;
 
-const UserIcon = styled.div`
-    
+const MobileNav = styled.div`
+    font-family: pretendard;
+    font-size: 0.7em;
+    font-weight: bold;
+    cursor: pointer;
+`;
+
+const LogoImage = styled.img`
+    width: 10em;
+    cursor: pointer;
+`;
+
+const MobileLogoImage = styled.img`
+    width: 7em;
+    cursor: pointer;
 `;
 
 const Header = () => {
 
     const navigate = useNavigate();
 
+    const isOverTablet = useMediaQuery({
+        query: "(min-width:720px)"
+    });
+    const isMobile = useMediaQuery({
+        query: "(max-width:720px)"
+    });
+
     function titleOnClickHandler() {
         navigate('/');
     }
 
-    return(
-        <HeaderWrapper>
-            <HeaderContainer>
-                <Title onClick={titleOnClickHandler}>STOPICKR</Title>
-                <NavBox>
-                    <Nav>AI 성과 분석</Nav>
-                    <Nav>내 포트폴리오</Nav>
-                    <UserIcon>
-
-                    </UserIcon>
-                </NavBox>
-            </HeaderContainer>
-        </HeaderWrapper>
+    return (
+        <>
+            {
+                isOverTablet &&
+                <>
+                    <HeaderWrapper>
+                        <HeaderContainer>
+                            <LogoImage src={logo} alt={"image"} onClick={titleOnClickHandler}/>
+                            <NavBox>
+                                <Nav>AI 성과 분석</Nav>
+                                <Nav>내 포트폴리오</Nav>
+                            </NavBox>
+                        </HeaderContainer>
+                    </HeaderWrapper>
+                </>
+            }
+            {
+                isMobile &&
+                <>
+                    <HeaderWrapper>
+                        <MobileHeaderContainer>
+                            <MobileLogoImage src={logo} alt={"image"} onClick={titleOnClickHandler}/>
+                            <NavBox>
+                                <MobileNav>AI 성과 분석</MobileNav>
+                                <MobileNav>내 포트폴리오</MobileNav>
+                            </NavBox>
+                        </MobileHeaderContainer>
+                    </HeaderWrapper>
+                </>
+            }
+        </>
     );
 };
 

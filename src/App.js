@@ -20,6 +20,7 @@ function App() {
     return (
         <AuthProvider>
             <DateProvider>
+                <PcScreen />
                 {isPc && <PcScreen/>}
                 {isTablet && <TabletScreen/>}
                 {isMobile && <MobileScreen/>}
