@@ -21,9 +21,9 @@ function App() {
         <AuthProvider>
             <DateProvider>
                 <PcScreen />
-                {isPc && <PcScreen/>}
-                {isTablet && <TabletScreen/>}
-                {isMobile && <MobileScreen/>}
+                {/*{isPc && <PcScreen/>}*/}
+                {/*{isTablet && <TabletScreen/>}*/}
+                {/*{isMobile && <MobileScreen/>}*/}
             </DateProvider>
         </AuthProvider>
     );

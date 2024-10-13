@@ -2,16 +2,18 @@ import React from "react";
 import Footer from "../Footer";
 import Header from "../Header";
 import NavSection from "./section/NavSection";
-import StockSection from "./section/StockSection";
-import IndexSection from "./section/IndexSection";
+import StockListIntroductionSection from "./section/StockListIntroductionSection";
+import StockAnalyzeIntroductionSection from "./section/StockAnalyzeIntroductionSection";
 
 const MainPage = () => {
     return(
         <div>
             <Header/>
             <NavSection/>
-            <StockSection/>
-            <IndexSection/>
+            <StockListIntroductionSection/>
+            {/*<StockAnalyzeIntroductionSection/>*/}
+            {/*<StockSection/>*/}
+            {/*<IndexSection/>*/}
             <Footer/>
         </div>
     );

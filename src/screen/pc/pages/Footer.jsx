@@ -12,12 +12,13 @@ const FooterWrapper = styled.div`
 const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100.125rem;
+    width: 70.256rem;
     gap: 1rem;
+    padding: 0 1em;
 `;
 
 const Content = styled.p`
-    font-size: 1.1rem;
+    font-size: 0.8em;
     line-height: 1.3;
     color: #000000;
     opacity: 0.5;

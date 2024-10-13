@@ -15,7 +15,7 @@ const HeaderWrapper = styled.div`
 
 const HeaderContainer = styled.div`
     display: flex;
-    height: 4em;
+    height: 5em;
     justify-content: space-between;
     align-items: center;
     width: 70.625em;
@@ -24,7 +24,7 @@ const HeaderContainer = styled.div`
 
 const MobileHeaderContainer = styled.div`
     display: flex;
-    height: 3em;
+    height: 4em;
     justify-content: space-between;
     align-items: center;
     width: 70.625em;
@@ -38,14 +38,14 @@ const NavBox = styled.div`
 
 const Nav = styled.div`
     font-family: pretendard;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
 `;
 
 const MobileNav = styled.div`
     font-family: pretendard;
-    font-size: 0.7em;
+    font-size: 0.9em;
     font-weight: bold;
     cursor: pointer;
 `;
@@ -56,7 +56,7 @@ const LogoImage = styled.img`
 `;
 
 const MobileLogoImage = styled.img`
-    width: 7em;
+    width: 7.5em;
     cursor: pointer;
 `;
 

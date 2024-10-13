@@ -40,7 +40,7 @@ const MobileNavSectionContainer = styled.div`
 `;
 
 const NavTitle = styled.p`
-    font-size: 3.5rem;
+    font-size: 3rem;
     white-space: pre-line;
     font-weight: bold;
     line-height: 1.2;
@@ -53,7 +53,7 @@ const NavTitle = styled.p`
 `;
 
 const MobileNavTitle = styled.p`
-    font-size: 1.5em;
+    font-size: 1.1em;
     white-space: pre-line;
     font-weight: bold;
     line-height: 1.2;
@@ -78,9 +78,9 @@ const NavContent = styled.p`
 `;
 
 const MobileNavContent = styled.p`
-    font-size: 0.8em;
+    font-size: 0.5em;
     white-space: pre-line;
-    line-height: 1.4;
+    line-height: 1.2;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
@@ -96,12 +96,12 @@ const LogoImage = styled.img`
 `;
 
 const MobileLogoImage = styled.img`
-    width: 7rem;
+    width: 10rem;
     bottom: 2.5em;
     right: 2.5em;
 `;
 
-const NavSection = () => {
+const StockAnalyzeIntroductionSection = () => {
 
     const isOverTablet = useMediaQuery({
         query: "(min-width:720px)"
@@ -116,11 +116,10 @@ const NavSection = () => {
                 <NavSectionWrapper>
                     <NavSectionContainer>
                         <div>
-                            <NavTitle style={{color: "#1454FF"}}>{wrapTextWithLang("어려운 주식 투자")}</NavTitle>
+                            <NavTitle style={{color: "#1454FF"}}>{wrapTextWithLang("어려운 주식 투자 선택")}</NavTitle>
                             <NavTitle style={{paddingBottom: "1rem"}}>{wrapTextWithLang("AI 기술과 함께")}</NavTitle>
-                            <NavContent>{wrapTextWithLang("AI 모델 성과 및 수익률 분석\n서비스에서 선정된 산별 현황을 확인해보세요")}</NavContent>
+                            <NavContent>{wrapTextWithLang("AI 모델 성과 및 수익률 분석\n서비스에서 선정된 자산별 현황을 확인해보세요")}</NavContent>
                         </div>
-                        <LogoImage src={stock_character} alt={"image"}/>
                     </NavSectionContainer>
                 </NavSectionWrapper>
             }
@@ -128,9 +127,9 @@ const NavSection = () => {
                 <NavSectionWrapper>
                     <MobileNavSectionContainer>
                         <div>
-                            <MobileNavTitle style={{color: "#1454FF"}}>{wrapTextWithLang("어려운 주식 투자")}</MobileNavTitle>
+                            <MobileNavTitle style={{color: "#1454FF"}}>{wrapTextWithLang("어려운 주식 투자 선택")}</MobileNavTitle>
                             <MobileNavTitle style={{paddingBottom: "0.6rem"}}>{wrapTextWithLang("AI 기술과 함께")}</MobileNavTitle>
-                            <MobileNavContent>{wrapTextWithLang("AI 모델 성과 및 수익률 분석\n서비스에서 선정된\n자산별 현황을 확인해보세요")}</MobileNavContent>
+                            <MobileNavContent>{wrapTextWithLang("AI 모델 성과 및 수익률 분석\n서비스에서 선정된 자산별 현황을 확인해보세요")}</MobileNavContent>
                         </div>
                         <MobileLogoImage src={stock_character} alt={"image"}/>
                     </MobileNavSectionContainer>
@@ -140,4 +139,4 @@ const NavSection = () => {
     );
 };
 
-export default NavSection;
+export default StockAnalyzeIntroductionSection;
