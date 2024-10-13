@@ -29,7 +29,9 @@ const NavSectionContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1.875rem;
+    padding: 5em 0;
+    width: 100%;
+    gap: 3em;
 `;
 
 const MobileNavSectionContainer = styled.div`
@@ -37,6 +39,9 @@ const MobileNavSectionContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 3.5em 0;
+    width: 100%;
+    gap: 2em;
 `;
 
 const NavTitle = styled.p`
@@ -90,7 +95,7 @@ const MobileNavContent = styled.p`
 `;
 
 const LogoImage = styled.img`
-    width: 25rem;
+    width: 20rem;
     bottom: 2.5rem;
     right: 2.5rem;
 `;

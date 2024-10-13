@@ -27,7 +27,7 @@ const NavSectionWrapper = styled.div`
 `;
 
 const MobileNavSectionWrapper = styled.div`
-    padding: 8em 1em;
+    padding: 3em 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,13 +41,19 @@ const NavSectionContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 7em;
+    width: 100%;
+    padding: 2.5em 0;
 `;
+
 
 const MobileNavSectionContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 1.5em;
+    width: 100%;
+    margin: 3em 0;
 `;
 
 const NavTitle = styled.p`
@@ -71,6 +77,8 @@ const MobileNavTitle = styled.p`
     font-weight: bold;
     line-height: 1.2;
     color: white;
+    text-align: center;
+    padding-bottom: 0.2em;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
@@ -85,6 +93,7 @@ const NavContent = styled.p`
     line-height: 1.2;
     color: white;
     padding-bottom: 0.5em;
+    width: 100%;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
@@ -97,6 +106,9 @@ const MobileNavContent = styled.p`
     font-size: 0.5em;
     white-space: pre-line;
     line-height: 1.2;
+    color: white;
+    width: 100%;
+    padding-bottom: 0.3em;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
@@ -106,13 +118,13 @@ const MobileNavContent = styled.p`
 `;
 
 const LogoImage = styled.img`
-    width: 25rem;
+    width: 18rem;
     bottom: 2.5rem;
     right: 2.5rem;
 `;
 
 const MobileLogoImage = styled.img`
-    width: 10rem;
+    width: 7rem;
     bottom: 2.5em;
     right: 2.5em;
 `;
@@ -132,7 +144,7 @@ const StockListIntroductionSection = () => {
                 <NavSectionWrapper>
                     <div>
                         <NavTitle>{wrapTextWithLang("서비스가 제공하는")}</NavTitle>
-                        <NavTitle>{wrapTextWithLang("AI 기반 시스템을 소개합니다")}</NavTitle>
+                        <NavTitle style={{marginBottom: "1.5em"}}>{wrapTextWithLang("AI 기반 시스템을 소개합니다")}</NavTitle>
                         <NavSectionContainer>
                             <LogoImage src={stock_character} alt={"image"}/>
                             <div>
@@ -166,33 +178,33 @@ const StockListIntroductionSection = () => {
                 <MobileNavSectionWrapper>
                     <div>
                         <MobileNavTitle>{wrapTextWithLang("서비스가 제공하는")}</MobileNavTitle>
-                        <MobileNavTitle>{wrapTextWithLang("AI 기반 시스템을 소개합니다")}</MobileNavTitle>
-                        <NavSectionContainer>
+                        <MobileNavTitle style={{marginBottom: "2em"}}>{wrapTextWithLang("AI 기반 시스템을 소개합니다")}</MobileNavTitle>
+                        <MobileNavSectionContainer>
                             <MobileLogoImage src={stock_character} alt={"image"}/>
                             <div>
-                                <NavContent style={{fontSize: "1em"}}>{wrapTextWithLang("Selected")}</NavContent>
-                                <NavContent style={{fontSize: "2em", fontWeight:"bold"}}>{wrapTextWithLang("서비스에서 선정된 자산별 현황")}</NavContent>
-                                <NavContent style={{fontSize: "1.2em"}}>{wrapTextWithLang("KOSPI 50구성 종목에서\n거래량과 변동%를 기준으로 선정됩니다")}</NavContent>
-                                <NavContent style={{fontSize: "1.2em"}}>{wrapTextWithLang("선정된 자산들의 주가 데이터를 제공합니다")}</NavContent>
+                                <MobileNavContent style={{fontSize: "0.6em"}}>{wrapTextWithLang("Selected")}</MobileNavContent>
+                                <MobileNavContent style={{fontSize: "1.2em", fontWeight:"bold"}}>{wrapTextWithLang("서비스에서 선정된 자산별 현황")}</MobileNavContent>
+                                <MobileNavContent style={{fontSize: "0.8em"}}>{wrapTextWithLang("KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다")}</MobileNavContent>
+                                <MobileNavContent style={{fontSize: "0.8em"}}>{wrapTextWithLang("선정된 자산들의 주가 데이터를 제공합니다")}</MobileNavContent>
                             </div>
-                        </NavSectionContainer>
-                        <NavSectionContainer>
+                        </MobileNavSectionContainer>
+                        <MobileNavSectionContainer>
                             <div>
-                                <NavContent style={{fontSize: "1em"}}>{wrapTextWithLang("Analyzed")}</NavContent>
-                                <NavContent style={{fontSize: "2em", fontWeight:"bold"}}>{wrapTextWithLang("자산별 AI 테스트 분석")}</NavContent>
-                                <NavContent style={{fontSize: "1.2em"}}>{wrapTextWithLang("선정된 자산별 AI를 이용한\n테스트 수익 및 데이터를 제공합니다")}</NavContent>
+                                <MobileNavContent style={{fontSize: "0.6em"}}>{wrapTextWithLang("Analyzed")}</MobileNavContent>
+                                <MobileNavContent style={{fontSize: "1.2em", fontWeight:"bold"}}>{wrapTextWithLang("자산별 AI 테스트 분석")}</MobileNavContent>
+                                <MobileNavContent style={{fontSize: "0.8em"}}>{wrapTextWithLang("선정된 자산별 AI를 이용한\n테스트 수익 및 데이터를 제공합니다")}</MobileNavContent>
                             </div>
                             <MobileLogoImage src={stock_character} alt={"image"}/>
-                        </NavSectionContainer>
-                        <NavSectionContainer>
+                        </MobileNavSectionContainer>
+                        <MobileNavSectionContainer>
                             <MobileLogoImage src={stock_character} alt={"image"}/>
                             <div>
-                                <NavContent style={{fontSize: "1em"}}>{wrapTextWithLang("Predicted")}</NavContent>
-                                <NavContent style={{fontSize: "2em", fontWeight:"bold"}}>{wrapTextWithLang("자산별 AI 추천")}</NavContent>
-                                <NavContent style={{fontSize: "1.2em"}}>{wrapTextWithLang("테스트가 완료된 자산별\nAI가 추천하는 예측 행동을 제공합니다")}</NavContent>
-                                <NavContent style={{fontSize: "1.2em"}}>{wrapTextWithLang("예측 행동을 통해 투자 결정을 보조합니다")}</NavContent>
+                                <MobileNavContent style={{fontSize: "0.6em"}}>{wrapTextWithLang("Predicted")}</MobileNavContent>
+                                <MobileNavContent style={{fontSize: "1.2em", fontWeight:"bold"}}>{wrapTextWithLang("자산별 AI 추천")}</MobileNavContent>
+                                <MobileNavContent style={{fontSize: "0.8em"}}>{wrapTextWithLang("테스트가 완료된 자산별 AI가 추천하는 예측 행동을 제공합니다")}</MobileNavContent>
+                                <MobileNavContent style={{fontSize: "0.8em"}}>{wrapTextWithLang("예측 행동을 통해 투자 결정을 보조합니다")}</MobileNavContent>
                             </div>
-                        </NavSectionContainer>
+                        </MobileNavSectionContainer>
                     </div>
                 </MobileNavSectionWrapper>
             }
