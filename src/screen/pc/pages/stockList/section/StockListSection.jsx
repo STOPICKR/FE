@@ -9,6 +9,7 @@ import {useDate} from "../../../../../context/date/DateContext";
 import {useMediaQuery} from "react-responsive";
 import MobileIntroductionBox from "../../components/MobileIntroductionBox";
 import MobileContainerTitle from "../../components/MobileContainerTitle";
+import MobileStockBox from "../../components/MobileStockBox";
 
 const StockDetailSectionWrapper = styled.div`
     display: flex;
@@ -24,7 +25,7 @@ const StockDetailSectionContainer = styled.div`
     align-items: center;
     width: 70.625em;
     gap: 1.875rem;
-    margin: 3em 1.2em;
+    margin: 2em 1.2em;
 `;
 
 const StockDetailBoxContainer = styled.div`
@@ -37,9 +38,24 @@ const StockDetailBoxContainer = styled.div`
 
 const StockDetailBoxRow = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
     gap: 1.875em;
 `;
+
+const MobileStockDetailBoxRow = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1.875em;
+`;
+
+const StockBoxStyled = styled.div`
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05); /* 5% 확대 */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 확대될 때 그림자 추가 */
+    }
+`
 
 const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -89,21 +105,23 @@ const StockListSection = () => {
                         <StockDetailBoxContainer>
                             <IntroductionBox
                                 subTitle={"Selected"}
-                                title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nTrand Trader 선정 주식 종목`}
+                                title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nSTOPICKR 선정 주식 종목`}
                                 content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n"
-                                    + "2. 선정된 종목의 AI 분석을 확인해보세요"
+                                    + "2. 선정된 종목의 AI 분석을 확인해보세요\n"
                                     + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
                                 detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
                             <StockDetailBoxRow>
                                 {stocks.slice(0, 10).map((stock, index) => (
-                                    <StockBox
-                                        key={index}
-                                        stockNumber={index + 1}
-                                        stockTitle={stock.itmsNm}
-                                        stockCode={stock.isinCd}
-                                        stockData={stock.stockData}
-                                        onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
-                                    />
+                                    <StockBoxStyled>
+                                        <StockBox
+                                            key={index}
+                                            stockNumber={index + 1}
+                                            stockTitle={stock.itmsNm}
+                                            stockCode={stock.isinCd}
+                                            stockData={stock.stockData}
+                                            onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
+                                        />
+                                    </StockBoxStyled>
                                 ))}
                             </StockDetailBoxRow>
                         </StockDetailBoxContainer>
@@ -117,14 +135,14 @@ const StockListSection = () => {
                         <StockDetailBoxContainer>
                             <MobileIntroductionBox
                                 subTitle={"Selected"}
-                                title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nTrand Trader 선정 주식 종목`}
+                                title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nSTOPICKR 선정 주식 종목`}
                                 content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n"
-                                    + "2. 선정된 종목의 AI 분석을 확인해보세요"
+                                    + "2. 선정된 종목의 AI 분석을 확인해보세요\n"
                                     + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
                                 detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
-                            <StockDetailBoxRow>
+                            <MobileStockDetailBoxRow>
                                 {stocks.slice(0, 10).map((stock, index) => (
-                                    <StockBox
+                                    <MobileStockBox
                                         key={index}
                                         stockNumber={index + 1}
                                         stockTitle={stock.itmsNm}
@@ -133,7 +151,7 @@ const StockListSection = () => {
                                         onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
                                     />
                                 ))}
-                            </StockDetailBoxRow>
+                            </MobileStockDetailBoxRow>
                         </StockDetailBoxContainer>
                     </StockDetailSectionContainer>
                 </StockDetailSectionWrapper>

@@ -9,29 +9,30 @@ const StockBoxWrapper = styled.div`
     justify-content: space-between;
     align-items: start;
     border-radius: 2.25rem;
-    padding: 2.5rem;
+    padding: 1.8em;
     background-color: white;
+    gap: 0.7em;
     cursor: pointer; // 클릭 가능하도록 커서 스타일 추가
-    gap: 1.1em;
 `;
 
 const StockNumber = styled.p`
-    font-size: 1em;
+    font-size: 0.7em;
     font-family: pretendard;
 `;
 
 const StockTitle = styled.p`
-    font-size: 1.8em;
+    font-size: 1.3rem;
     font-weight: bold;
     font-family: pretendard;
 `;
 
 const StockCode = styled.p`
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     font-family: pretendard;
 `;
 
 const StockGraphWrapper = styled.div`
+    height: 13em;
     width: 100%;
 `;
 
@@ -43,17 +44,17 @@ const StockDetailBox = styled.div`
 `;
 
 const StockTag = styled.p`
-    font-size: 1.25rem;
+    font-size: 0.8em;
     font-family: pretendard;
     font-weight: bold;
 `;
 
 const StockValue = styled.p`
-    font-size: 1.25rem;
+    font-size: 0.8em;
     font-family: pretendard;
 `;
 
-const StockBox = ({ stockNumber, stockTitle, stockCode, stockData, onClick }) => {
+const MobileStockBox = ({ stockNumber, stockTitle, stockCode, stockData, onClick }) => {
     const [latestPrice, setLatestPrice] = useState(null);
     const [latestDate, setLatestDate] = useState(null);
 
@@ -87,4 +88,4 @@ const StockBox = ({ stockNumber, stockTitle, stockCode, stockData, onClick }) =>
     );
 };
 
-export default StockBox;
+export default MobileStockBox;

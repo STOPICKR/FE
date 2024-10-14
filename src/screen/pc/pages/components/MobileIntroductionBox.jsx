@@ -29,7 +29,7 @@ const IntroductionBoxWrapper = styled.div`
 const IntroductionTitleContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.7em;
 `;
 
 const IntroductionBoxSubTitle = styled.p`
@@ -44,7 +44,7 @@ const IntroductionBoxSubTitle = styled.p`
 `;
 
 const IntroductionBoxTitle = styled.p`
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bold;
     white-space: pre-line;
     line-height: 1.2;
@@ -57,7 +57,7 @@ const IntroductionBoxTitle = styled.p`
 `;
 
 const IntroductionBoxContent = styled.p`
-    font-size: 0.7em;
+    font-size: 0.8em;
     white-space: pre-line;
     line-height: 1.5;
     [lang="en"] {
@@ -77,7 +77,7 @@ const BottomContainer = styled.div`
 `;
 
 const IntroductionBoxDetail = styled.p`
-    font-size: 0.7em;
+    font-size: 0.8em;
     white-space: pre-line;
     opacity: 0.5;
     [lang="en"] {
