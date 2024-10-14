@@ -1,46 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // useNavigate 사용
+import React, {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom"; // useNavigate 사용
 import ContainerTitle from "../../components/ContainerTitle";
 import styled from "styled-components";
 import IntroductionBox from "../../components/IntroductionBox";
 import StockBox from "../../components/StockBox";
-import { executeGetWeeklyStocksForList } from "../../../../../api/ApiService";
+import {executeGetWeeklyStocksForList} from "../../../../../api/ApiService";
 import {useDate} from "../../../../../context/date/DateContext";
+import {useMediaQuery} from "react-responsive";
+import MobileIntroductionBox from "../../components/MobileIntroductionBox";
+import MobileContainerTitle from "../../components/MobileContainerTitle";
 
 const StockDetailSectionWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #99B5F9;
+    background-color: #264653;
 `;
 
 const StockDetailSectionContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
-    width: 100.125rem;
-    padding: 3.75rem 0;
+    align-items: center;
+    width: 70.625em;
     gap: 1.875rem;
+    margin: 3em 1.2em;
 `;
 
 const StockDetailBoxContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
     justify-content: center;
     gap: 1.875rem;
+    width: 100%;
 `;
 
 const StockDetailBoxRow = styled.div`
-    display: flex;
-    width: 100%;
-    gap: 1.875rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.875em;
 `;
 
 const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString("ko-KR", { month: "long", day: "numeric" });
+    return date.toLocaleDateString("ko-KR", {month: "long", day: "numeric"});
 }
 
 const getYear = (dateString) => {
@@ -49,7 +52,15 @@ const getYear = (dateString) => {
 };
 
 const StockListSection = () => {
-    const { startDate, endDate } = useDate();
+
+    const isOverTablet = useMediaQuery({
+        query: "(min-width:720px)"
+    });
+    const isMobile = useMediaQuery({
+        query: "(max-width:720px)"
+    });
+
+    const {startDate, endDate} = useDate();
 
     const [stocks, setStocks] = useState([]); // 주식 데이터를 저장할 상태 변수
     const navigate = useNavigate(); // useNavigate 훅을 사용
@@ -66,64 +77,68 @@ const StockListSection = () => {
     }, []);
 
     const handleStockClick = (stock) => {
-        navigate(`/stock-detail/${stock.isinCd}`, { state: { stock } }); // 주식 데이터와 함께 이동
+        navigate(`/stock-detail/${stock.isinCd}`, {state: {stock}}); // 주식 데이터와 함께 이동
     };
 
     return (
-        <StockDetailSectionWrapper>
-            <StockDetailSectionContainer>
-                <ContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"} />
-                <StockDetailBoxContainer>
-                    <StockDetailBoxRow>
-                        <div style={{ display: "flex", flex: "1", gap: "1.875rem" }}>
+        <>
+            {isOverTablet &&
+                <StockDetailSectionWrapper>
+                    <StockDetailSectionContainer>
+                        <ContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"}/>
+                        <StockDetailBoxContainer>
                             <IntroductionBox
-                                subTitle={"AI 모델 성과"}
+                                subTitle={"Selected"}
                                 title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nTrand Trader 선정 주식 종목`}
                                 content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n"
-                                    + "2. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"
-                                    + "3. 선정된 종목의 AI 분석을 확인해보세요"}
-                                detail={"⦁ 종목은 매 주 시가총액 상위 10개 종목으로 선정됩니다."} />
-                        </div>
-                        <div style={{ display: "flex", flex: "1", gap: "1.875rem" }}>
-                            {stocks.slice(0, 2).map((stock, index) => (
-                                <StockBox
-                                    key={index}
-                                    stockNumber={index + 1}
-                                    stockTitle={stock.itmsNm}
-                                    stockCode={stock.isinCd}
-                                    stockData={stock.stockData}
-                                    onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
-                                />
-                            ))}
-                        </div>
-                    </StockDetailBoxRow>
-                    <StockDetailBoxRow>
-                        {stocks.slice(2, 6).map((stock, index) => (
-                            <StockBox
-                                key={index + 2}
-                                stockNumber={index + 3}
-                                stockTitle={stock.itmsNm}
-                                stockCode={stock.isinCd}
-                                stockData={stock.stockData}
-                                onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
-                            />
-                        ))}
-                    </StockDetailBoxRow>
-                    <StockDetailBoxRow>
-                        {stocks.slice(6, 10).map((stock, index) => (
-                            <StockBox
-                                key={index + 6}
-                                stockNumber={index + 7}
-                                stockTitle={stock.itmsNm}
-                                stockCode={stock.isinCd}
-                                stockData={stock.stockData}
-                                onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
-                            />
-                        ))}
-                    </StockDetailBoxRow>
-                </StockDetailBoxContainer>
-            </StockDetailSectionContainer>
-        </StockDetailSectionWrapper>
+                                    + "2. 선정된 종목의 AI 분석을 확인해보세요"
+                                    + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
+                                detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
+                            <StockDetailBoxRow>
+                                {stocks.slice(0, 10).map((stock, index) => (
+                                    <StockBox
+                                        key={index}
+                                        stockNumber={index + 1}
+                                        stockTitle={stock.itmsNm}
+                                        stockCode={stock.isinCd}
+                                        stockData={stock.stockData}
+                                        onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
+                                    />
+                                ))}
+                            </StockDetailBoxRow>
+                        </StockDetailBoxContainer>
+                    </StockDetailSectionContainer>
+                </StockDetailSectionWrapper>
+            }
+            {isMobile &&
+                <StockDetailSectionWrapper>
+                    <StockDetailSectionContainer>
+                        <MobileContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"}/>
+                        <StockDetailBoxContainer>
+                            <MobileIntroductionBox
+                                subTitle={"Selected"}
+                                title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nTrand Trader 선정 주식 종목`}
+                                content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n"
+                                    + "2. 선정된 종목의 AI 분석을 확인해보세요"
+                                    + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
+                                detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
+                            <StockDetailBoxRow>
+                                {stocks.slice(0, 10).map((stock, index) => (
+                                    <StockBox
+                                        key={index}
+                                        stockNumber={index + 1}
+                                        stockTitle={stock.itmsNm}
+                                        stockCode={stock.isinCd}
+                                        stockData={stock.stockData}
+                                        onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
+                                    />
+                                ))}
+                            </StockDetailBoxRow>
+                        </StockDetailBoxContainer>
+                    </StockDetailSectionContainer>
+                </StockDetailSectionWrapper>
+            }
+        </>
     );
 };
 

@@ -72,7 +72,7 @@ const Footer = () => {
                             ⦁ 본 서비스는 광고 및 제휴를 통해 수익을 창출할 수 있으며, 특정 주식이나 금융 상품에 대한 광고가 포함될 수 있습니다. 그러나, 광고 내용은 본 서비스의 투자 추천과 무관하며, 사용자는 광고에 대해 스스로 판단하셔야 합니다.
                         </Content>
                         <Content>
-                            문의사항 ➤ 개발자 email : 0109548@naver.com
+                            문의사항 ➤ 개발자 email : yjyjk0127@gmail.com
                         </Content>
                     </ContentContainer>
                 </FooterWrapper>
@@ -105,7 +105,7 @@ const Footer = () => {
                             ⦁ 본 서비스는 광고 및 제휴를 통해 수익을 창출할 수 있으며, 특정 주식이나 금융 상품에 대한 광고가 포함될 수 있습니다. 그러나, 광고 내용은 본 서비스의 투자 추천과 무관하며, 사용자는 광고에 대해 스스로 판단하셔야 합니다.
                         </Content>
                         <Content>
-                            문의사항 ➤ 개발자 email : 0109548@naver.com
+                            문의사항 ➤ 개발자 email : yjyjk0127@gmail.com
                         </Content>
                     </ContentContainer>
                 </MobileFooterWrapper>

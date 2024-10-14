@@ -69,7 +69,7 @@ const StockGraph = ({ stockData }) => {
         },
     };
 
-    return <ApexChart type="candlestick" series={series} options={options} height="100%" width="100%" />;
+    return <ApexChart type="candlestick" series={series} options={options} height="100%" width="100%"/>;
 };
 
 export default StockGraph;

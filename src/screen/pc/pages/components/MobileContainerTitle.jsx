@@ -26,7 +26,7 @@ const TitleWrapper = styled.div`
 const Title = styled.span`
     color: white;
     font-family: pretendard,serif;
-    font-size: 1.8em;
+    font-size: 1.3em;
     font-weight: bold;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
@@ -36,7 +36,7 @@ const Title = styled.span`
     }
 `;
 
-const ContainerTitle = ({subTitle}) => {
+const MobileContainerTitle = ({subTitle}) => {
     return(
         <TitleWrapper>
             <Title>{wrapTextWithLang("STOPICKR에서")}</Title>
@@ -45,4 +45,4 @@ const ContainerTitle = ({subTitle}) => {
     );
 };
 
-export default ContainerTitle;
+export default MobileContainerTitle;

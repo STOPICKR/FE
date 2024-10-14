@@ -22,7 +22,7 @@ const IntroductionBoxWrapper = styled.div`
     justify-content: space-between;
     align-items: start;
     border-radius: 2.25rem;
-    padding: 2.5rem;
+    padding: 1.8em;
     background-color: white;
 `;
 
@@ -33,7 +33,7 @@ const IntroductionTitleContainer = styled.div`
 `;
 
 const IntroductionBoxSubTitle = styled.p`
-    font-size: 1rem;
+    font-size: 0.7em;
     white-space: pre-line;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
@@ -44,7 +44,7 @@ const IntroductionBoxSubTitle = styled.p`
 `;
 
 const IntroductionBoxTitle = styled.p`
-    font-size: 1.8em;
+    font-size: 1.5em;
     font-weight: bold;
     white-space: pre-line;
     line-height: 1.2;
@@ -57,7 +57,7 @@ const IntroductionBoxTitle = styled.p`
 `;
 
 const IntroductionBoxContent = styled.p`
-    font-size: 1.1em;
+    font-size: 0.7em;
     white-space: pre-line;
     line-height: 1.5;
     [lang="en"] {
@@ -77,7 +77,7 @@ const BottomContainer = styled.div`
 `;
 
 const IntroductionBoxDetail = styled.p`
-    font-size: 1em;
+    font-size: 0.7em;
     white-space: pre-line;
     opacity: 0.5;
     [lang="en"] {
@@ -88,7 +88,7 @@ const IntroductionBoxDetail = styled.p`
     }
 `;
 
-const IntroductionBox = ({subTitle, title, content, detail, buttonText, onClick}) => {
+const MobileIntroductionBox = ({subTitle, title, content, detail, buttonText, onClick}) => {
     return(
         <IntroductionBoxWrapper>
             <IntroductionTitleContainer>
@@ -104,4 +104,4 @@ const IntroductionBox = ({subTitle, title, content, detail, buttonText, onClick}
     );
 };
 
-export default IntroductionBox;
+export default MobileIntroductionBox;
