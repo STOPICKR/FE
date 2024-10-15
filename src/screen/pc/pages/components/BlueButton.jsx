@@ -20,6 +20,8 @@ const ButtonWrapper = styled.div`
     text-align: center;
     white-space: pre-line;
     color: white;
+    width: auto;
+    height: auto;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }

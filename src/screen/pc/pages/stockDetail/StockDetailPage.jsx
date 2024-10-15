@@ -17,11 +17,9 @@ const StockDetailPage = () => {
         const fetchData = async () => {
             try {
                 const testResultResponse = await fetchTestResultByStockId(stock.isinCd);
-                console.log("Test Result Data:", testResultResponse.data);
                 setTestResult(testResultResponse.data);
 
                 const predictionResultResponse = await fetchPredictionResultByStockId(stock.isinCd);
-                console.log("Prediction Result Data:", predictionResultResponse.data);
                 setPredictionResult(predictionResultResponse.data);
             } catch (error) {
                 console.error("Error fetching data:", error);

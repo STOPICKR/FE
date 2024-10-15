@@ -18,10 +18,10 @@ export const executeGetWeeklyStocksForList = () =>
 
 // analyze
 export const fetchTestResultByStockId = (stockId) =>
-    apiClient.get(`/api/v1/test-result/${stockId}`);
+    apiClient.get(`/api/v1/stock-analyze/test-result/${stockId}`);
 
 export const fetchPredictionResultByStockId = (stockId) =>
-    apiClient.get(`/api/v1/prediction-result/${stockId}`);
+    apiClient.get(`/api/v1/stock-analyze/prediction-result/${stockId}`);
 
 //admin용
 export const executeSearchStocks = (query) =>

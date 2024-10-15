@@ -4,24 +4,37 @@ import styled from "styled-components";
 import BlueButton from "../../components/BlueButton";
 import StockGraph from "../../components/StockGraph";
 
+const wrapTextWithLang = (text) => {
+    return text.split('\n').map((line, index) => (
+        <React.Fragment key={index}>
+            {line.split('').map((char, index) => {
+                const isKorean = /[가-힣]/.test(char);
+                const lang = isKorean ? 'ko' : 'en';
+                return <span key={index} lang={lang}>{char}</span>;
+            })}
+            <br />
+        </React.Fragment>
+    ));
+};
+
 const StockDetailSectionWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #99B5F9;
+    background-color: #264653;
 `;
 
 const StockDetailSectionContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100.125rem;
-    padding: 3.75rem 0;
+    width: 70.625em;
+    margin: 2em 1.2em;
     gap: 1.875rem;
 `;
 
 const StockDetail = styled.div`
     display: flex;
-    padding: 2.5rem;
+    padding: 2.5em 2.5em 2em 2.5em;
     gap: 1.875rem;
     background-color: white;
     border-radius: 2.25rem;
@@ -42,20 +55,38 @@ const StockDetailRight = styled.div`
 const StockTitleBox = styled.div`
     display: flex;
     width: 100%;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.875rem;
+`;
+
+const StockTitleInnerBox = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: baseline;
+    gap: 1em;
+    padding-left: 1em;
 `;
 
 const StockTitle = styled.p`
-    font-size: 2rem;
+    font-size: 1.8em;
     font-weight: bold;
-    font-family: pretendard;
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
 `;
 
 const StockCode = styled.p`
-    font-size: 1.25rem;
-    font-family: pretendard;
+    font-size: 1.1rem;
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
 `;
 
 const StockGraphWrapper = styled.div`
@@ -71,12 +102,13 @@ const StockDetailSummary = styled.div`
     background-color: #264653;
     padding: 1.875rem;
     gap: 1.25rem;
+    width: 12em;
 `;
 
 const StockDetailTitle = styled.p`
     width: 100%;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.6em;
     font-weight: bold;
     font-family: pretendard,serif;
     color: white;
@@ -90,7 +122,7 @@ const StockDetailList = styled.div`
 `;
 
 const StockValueText = styled.p`
-    font-size: 1.25rem;
+    font-size: 1.1em;
     font-family: pretendard,serif;
     color: white;
 `;
@@ -110,12 +142,14 @@ const StockDetailSection = ({ stock }) => {
                 <StockDetail>
                     <StockDetailLeft>
                         <StockTitleBox>
-                            <StockTitle>{itmsNm}</StockTitle>
-                            <StockCode>{isinCd}</StockCode>
-                            <BlueButton buttonText={"포트폴리오 추가하기"} />
+                            <StockTitleInnerBox>
+                                <StockTitle>{wrapTextWithLang(itmsNm)}</StockTitle>
+                                <StockCode>{wrapTextWithLang(isinCd)}</StockCode>
+                            </StockTitleInnerBox>
+                            {/*<BlueButton buttonText={"포트폴리오 추가하기"} />*/}
                         </StockTitleBox>
                         <StockGraphWrapper>
-                            <StockGraph stockData={stockData} />
+                            <StockGraph stockData={stockData}/>
                         </StockGraphWrapper>
                     </StockDetailLeft>
                     <StockDetailRight>

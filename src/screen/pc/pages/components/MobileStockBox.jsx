@@ -12,7 +12,7 @@ const StockBoxWrapper = styled.div`
     padding: 1.8em;
     background-color: white;
     gap: 0.7em;
-    cursor: pointer; // 클릭 가능하도록 커서 스타일 추가
+    cursor: pointer;
 `;
 
 const StockNumber = styled.p`

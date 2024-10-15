@@ -26,8 +26,8 @@ const StockDetailAnalyzeSectionWrapper = styled.div`
 const StockDetailAnalyzeSectionContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100.125rem;
-    padding: 0 0 3.75rem 0;
+    width: 70.625em;
+    padding: 2em 1em;
     gap: 1.875rem;
     background-color: white;
     border-radius: 2.25rem;
