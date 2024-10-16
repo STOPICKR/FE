@@ -1,8 +1,9 @@
 import React from "react";
 import ContainerTitle from "../../components/ContainerTitle";
 import styled from "styled-components";
-import BlueButton from "../../components/BlueButton";
 import StockGraph from "../../components/StockGraph";
+import {useMediaQuery} from "react-responsive";
+import MobileContainerTitle from "../../components/MobileContainerTitle";
 
 const wrapTextWithLang = (text) => {
     return text.split('\n').map((line, index) => (
@@ -35,6 +36,15 @@ const StockDetailSectionContainer = styled.div`
 const StockDetail = styled.div`
     display: flex;
     padding: 2.5em 2.5em 2em 2.5em;
+    gap: 1.875rem;
+    background-color: white;
+    border-radius: 2.25rem;
+`;
+
+const MobileStockDetail = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 1.8em;
     gap: 1.875rem;
     background-color: white;
     border-radius: 2.25rem;
@@ -79,8 +89,29 @@ const StockTitle = styled.p`
     }
 `;
 
+const MobileStockTitle = styled.p`
+    font-size: 1.2em;
+    font-weight: bold;
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
+`;
+
 const StockCode = styled.p`
-    font-size: 1.1rem;
+    font-size: 1.1em;
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
+`;
+
+const MobileStockCode = styled.p`
+    font-size: 0.8em;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
@@ -95,6 +126,12 @@ const StockGraphWrapper = styled.div`
     margin-top: 1rem;
 `;
 
+const MobileStockGraphWrapper = styled.div`
+    width: 100%;
+    height: 15em;
+    margin-top: 1rem;
+`;
+
 const StockDetailSummary = styled.div`
     display: flex;
     flex-direction: column;
@@ -105,10 +142,29 @@ const StockDetailSummary = styled.div`
     width: 12em;
 `;
 
+const MobileStockDetailSummary = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 2.25rem;
+    background-color: #264653;
+    padding: 1.5em;
+    gap: 1.25rem;
+`;
+
 const StockDetailTitle = styled.p`
     width: 100%;
     text-align: center;
     font-size: 1.6em;
+    font-weight: bold;
+    font-family: pretendard,serif;
+    color: white;
+`;
+
+const MobileStockDetailTitle = styled.p`
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
     font-weight: bold;
     font-family: pretendard,serif;
     color: white;
@@ -127,7 +183,21 @@ const StockValueText = styled.p`
     color: white;
 `;
 
+const MobileStockValueText = styled.p`
+    font-size: 1em;
+    font-family: pretendard,serif;
+    color: white;
+`;
+
 const StockDetailSection = ({ stock }) => {
+
+    const isOverTablet = useMediaQuery({
+        query: "(min-width:720px)"
+    });
+    const isMobile = useMediaQuery({
+        query: "(max-width:720px)"
+    });
+
     if (!stock) {
         return <div>주식 데이터를 불러오는 중입니다...</div>;
     }
@@ -136,62 +206,124 @@ const StockDetailSection = ({ stock }) => {
     const latestData = stockData[0]; // 최신 데이터만 사용 (여기서 가장 최근 데이터를 사용하도록 변경)
 
     return (
-        <StockDetailSectionWrapper>
-            <StockDetailSectionContainer>
-                <ContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"} />
-                <StockDetail>
-                    <StockDetailLeft>
-                        <StockTitleBox>
-                            <StockTitleInnerBox>
-                                <StockTitle>{wrapTextWithLang(itmsNm)}</StockTitle>
-                                <StockCode>{wrapTextWithLang(isinCd)}</StockCode>
-                            </StockTitleInnerBox>
-                            {/*<BlueButton buttonText={"포트폴리오 추가하기"} />*/}
-                        </StockTitleBox>
-                        <StockGraphWrapper>
-                            <StockGraph stockData={stockData}/>
-                        </StockGraphWrapper>
-                    </StockDetailLeft>
-                    <StockDetailRight>
-                        <StockDetailSummary>
-                            <StockDetailTitle>주식 정보</StockDetailTitle>
-                            <StockDetailList>
-                                <StockValueText>기준일</StockValueText>
-                                <StockValueText>{latestData.basDt}</StockValueText>
-                            </StockDetailList>
-                            <StockDetailList>
-                                <StockValueText>시가</StockValueText>
-                                <StockValueText>{latestData.mkp}</StockValueText>
-                            </StockDetailList>
-                            <StockDetailList>
-                                <StockValueText>종가</StockValueText>
-                                <StockValueText>{latestData.clpr}</StockValueText>
-                            </StockDetailList>
-                            <StockDetailList>
-                                <StockValueText>고가</StockValueText>
-                                <StockValueText>{latestData.hipr}</StockValueText>
-                            </StockDetailList>
-                            <StockDetailList>
-                                <StockValueText>저가</StockValueText>
-                                <StockValueText>{latestData.lopr}</StockValueText>
-                            </StockDetailList>
-                            <StockDetailList>
-                                <StockValueText>변동</StockValueText>
-                                <StockValueText>{latestData.clpr - latestData.mkp}</StockValueText>
-                            </StockDetailList>
-                            <StockDetailList>
-                                <StockValueText>변동 %</StockValueText>
-                                <StockValueText>{latestData.fltRt}%</StockValueText>
-                            </StockDetailList>
-                            <StockDetailList>
-                                <StockValueText>거래량</StockValueText>
-                                <StockValueText>{latestData.trqu}</StockValueText>
-                            </StockDetailList>
-                        </StockDetailSummary>
-                    </StockDetailRight>
-                </StockDetail>
-            </StockDetailSectionContainer>
-        </StockDetailSectionWrapper>
+        <>
+            {isOverTablet &&
+                <StockDetailSectionWrapper>
+                    <StockDetailSectionContainer>
+                        <ContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"} />
+                        <StockDetail>
+                            <StockDetailLeft>
+                                <StockTitleBox>
+                                    <StockTitleInnerBox>
+                                        <StockTitle>{wrapTextWithLang(itmsNm)}</StockTitle>
+                                        <StockCode>{wrapTextWithLang(isinCd)}</StockCode>
+                                    </StockTitleInnerBox>
+                                    {/*<BlueButton buttonText={"포트폴리오 추가하기"} />*/}
+                                </StockTitleBox>
+                                <StockGraphWrapper>
+                                    <StockGraph stockData={stockData}/>
+                                </StockGraphWrapper>
+                            </StockDetailLeft>
+                            <StockDetailRight>
+                                <StockDetailSummary>
+                                    <StockDetailTitle>주식 정보</StockDetailTitle>
+                                    <StockDetailList>
+                                        <StockValueText>기준일</StockValueText>
+                                        <StockValueText>{latestData.basDt}</StockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <StockValueText>시가</StockValueText>
+                                        <StockValueText>{latestData.mkp}</StockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <StockValueText>종가</StockValueText>
+                                        <StockValueText>{latestData.clpr}</StockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <StockValueText>고가</StockValueText>
+                                        <StockValueText>{latestData.hipr}</StockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <StockValueText>저가</StockValueText>
+                                        <StockValueText>{latestData.lopr}</StockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <StockValueText>변동</StockValueText>
+                                        <StockValueText>{latestData.clpr - latestData.mkp}</StockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <StockValueText>변동 %</StockValueText>
+                                        <StockValueText>{latestData.fltRt}%</StockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <StockValueText>거래량</StockValueText>
+                                        <StockValueText>{latestData.trqu}</StockValueText>
+                                    </StockDetailList>
+                                </StockDetailSummary>
+                            </StockDetailRight>
+                        </StockDetail>
+                    </StockDetailSectionContainer>
+                </StockDetailSectionWrapper>
+            }
+            {isMobile &&
+                <StockDetailSectionWrapper>
+                    <StockDetailSectionContainer>
+                        <MobileContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"} />
+                        <MobileStockDetail>
+                            <StockDetailLeft>
+                                <StockTitleBox>
+                                    <StockTitleInnerBox>
+                                        <MobileStockTitle>{wrapTextWithLang(itmsNm)}</MobileStockTitle>
+                                        <MobileStockCode>{wrapTextWithLang(isinCd)}</MobileStockCode>
+                                    </StockTitleInnerBox>
+                                    {/*<BlueButton buttonText={"포트폴리오 추가하기"} />*/}
+                                </StockTitleBox>
+                                <MobileStockGraphWrapper>
+                                    <StockGraph stockData={stockData}/>
+                                </MobileStockGraphWrapper>
+                            </StockDetailLeft>
+                            <StockDetailRight>
+                                <MobileStockDetailSummary>
+                                    <MobileStockDetailTitle>주식 정보</MobileStockDetailTitle>
+                                    <StockDetailList>
+                                        <MobileStockValueText>기준일</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.basDt}</MobileStockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <MobileStockValueText>시가</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.mkp}</MobileStockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <MobileStockValueText>종가</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.clpr}</MobileStockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <MobileStockValueText>고가</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.hipr}</MobileStockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <MobileStockValueText>저가</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.lopr}</MobileStockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <MobileStockValueText>변동</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.clpr - latestData.mkp}</MobileStockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <MobileStockValueText>변동 %</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.fltRt}%</MobileStockValueText>
+                                    </StockDetailList>
+                                    <StockDetailList>
+                                        <MobileStockValueText>거래량</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.trqu}</MobileStockValueText>
+                                    </StockDetailList>
+                                </MobileStockDetailSummary>
+                            </StockDetailRight>
+                        </MobileStockDetail>
+                    </StockDetailSectionContainer>
+                </StockDetailSectionWrapper>
+            }
+        </>
     );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import NavBox from "../../components/NavBox";
 import stock_character from "../../../../../images/stock_character.png"
+import selected_icon from "../../../../../images/selected_icon.png"
 import {useMediaQuery} from "react-responsive";
 
 const wrapTextWithLang = (text) => {
@@ -145,11 +145,11 @@ const StockListIntroductionSection = () => {
                     <div>
                         <NavTitle>{wrapTextWithLang("서비스가 제공하는")}</NavTitle>
                         <NavTitle style={{marginBottom: "1.5em"}}>{wrapTextWithLang("AI 기반 시스템을 소개합니다")}</NavTitle>
-                        <NavSectionContainer>
-                            <LogoImage src={stock_character} alt={"image"}/>
+                        <NavSectionContainer style={{gap: "2.5em"}}>
+                            <LogoImage style={{width: "30em"}} src={selected_icon} alt={"image"}/>
                             <div>
                                 <NavContent style={{fontSize: "1em"}}>{wrapTextWithLang("Selected")}</NavContent>
-                                <NavContent style={{fontSize: "2em", fontWeight:"bold"}}>{wrapTextWithLang("서비스에서 선정된 자산별 현황")}</NavContent>
+                                <NavContent style={{fontSize: "2em", fontWeight:"bold"}}>{wrapTextWithLang("서비스에서 선정된 자산 현황")}</NavContent>
                                 <NavContent style={{fontSize: "1.2em"}}>{wrapTextWithLang("KOSPI 50구성 종목에서\n거래량과 변동%를 기준으로 선정됩니다")}</NavContent>
                                 <NavContent style={{fontSize: "1.2em"}}>{wrapTextWithLang("선정된 자산들의 주가 데이터를 제공합니다")}</NavContent>
                             </div>
