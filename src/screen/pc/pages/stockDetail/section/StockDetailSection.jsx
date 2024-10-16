@@ -44,7 +44,7 @@ const StockDetail = styled.div`
 const MobileStockDetail = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 1.8em;
+    padding: 1.8em 1em 1em 1em;
     gap: 1.875rem;
     background-color: white;
     border-radius: 2.25rem;
@@ -75,7 +75,6 @@ const StockTitleInnerBox = styled.div`
     justify-content: start;
     align-items: baseline;
     gap: 1em;
-    padding-left: 1em;
 `;
 
 const StockTitle = styled.p`
