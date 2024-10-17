@@ -5,6 +5,7 @@ import Footer from "../Footer";
 import StockDetailSection from "./section/StockDetailSection";
 import StockDetailAnalyzeSection from "./section/StockDetailAnalyzeSection";
 import { fetchTestResultByStockId, fetchPredictionResultByStockId } from "../../../../api/ApiService";
+import StockDetailAnalyzeOperationSection from "./section/StockDetailAnalyzeOperationSection";
 
 const StockDetailPage = () => {
     const { state } = useLocation();
@@ -37,6 +38,9 @@ const StockDetailPage = () => {
                 testResult={testResult}
                 predictionResult={predictionResult}
             />
+            <StockDetailAnalyzeOperationSection
+                testResult={testResult}
+                predictionResult={predictionResult}/>
             <Footer />
         </div>
     );

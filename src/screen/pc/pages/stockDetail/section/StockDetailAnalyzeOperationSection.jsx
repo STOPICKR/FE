@@ -164,7 +164,7 @@ const StockReturnsPercentTextBox = styled.div`
 `
 
 const StockReturnsPercentText = styled.p`
-    font-size: 1.8em;
+    font-size: 2.5em;
     font-family: pretendard;
     font-weight: bold;
     color: ${({profit}) => (profit >= 0 ? 'red' : 'blue')};
@@ -179,7 +179,7 @@ const StockReturnsPercentText = styled.p`
 `;
 
 const StockPredictActionText = styled.p`
-    font-size: 2.5em;
+    font-size: 1.8em;
     font-family: pretendard;
     font-weight: bold;
     color: black;
@@ -300,7 +300,7 @@ const StockAnalyzeValueTextRight = styled.div`
     font-weight: bold;
 `
 
-const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
+const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
 
     const isOverTablet = useMediaQuery({
         query: "(min-width:720px)"
@@ -329,52 +329,27 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                     <StockDetailAnalyzeSectionContainer>
                         <StockDetailAnalyzeSectionInnerContainer>
                             <StockTitleInnerBox>
-                                <StockTitle>{wrapTextWithLang("STOPICKR AI")}</StockTitle>
-                                <StockSubTitle>{wrapTextWithLang("테스트 결과 분석")}</StockSubTitle>
+                                <StockTitle>{wrapTextWithLang("테스트 결과 기반")}</StockTitle>
+                                <StockSubTitle>{wrapTextWithLang("매도/매수 전략")}</StockSubTitle>
                             </StockTitleInnerBox>
                             <StockTestAnalyzeBox>
                                 <StockReturnsPercentBox>
                                     <StockReturnsTextBox>
                                         <StockReturnsText>
-                                            테스트 수익률
+                                            AI 추천
                                         </StockReturnsText>
                                     </StockReturnsTextBox>
                                     <StockReturnsPercentTextBox>
-                                        <StockReturnsPercentText profit={testResult.averageProfit}>
-                                            {wrapTextWithLang(formattedAverageProfit)}
-                                        </StockReturnsPercentText>
+                                        <StockPredictActionText>
+                                            {wrapTextWithLang(predictionResult.action)}
+                                        </StockPredictActionText>
                                     </StockReturnsPercentTextBox>
                                 </StockReturnsPercentBox>
-                                <StockAnalyzeValueColumnBox>
-                                    <StockAnalyzeValueColumn>
-                                        <StockAnalyzeValueTextBox>
-                                            <StockAnalyzeValueText>초기 자본금</StockAnalyzeValueText>
-                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(initialCapital.toLocaleString())}</StockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                        <StockAnalyzeValueTextBox>
-                                            <StockAnalyzeValueText>테스트 시작일</StockAnalyzeValueText>
-                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(testResult.startDate || "N/A")}</StockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                        <StockAnalyzeValueTextBox>
-                                            <StockAnalyzeValueText>테스트 종료일</StockAnalyzeValueText>
-                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(testResult.endDate || "N/A")}</StockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                    </StockAnalyzeValueColumn>
-                                    <StockAnalyzeValueColumn>
-                                        <StockAnalyzeValueTextBox>
-                                            <StockAnalyzeValueText>종료 후 자본금</StockAnalyzeValueText>
-                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(endCapital.toLocaleString())}</StockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                        <StockAnalyzeValueTextBox>
-                                            <StockAnalyzeValueText>거래 단위</StockAnalyzeValueText>
-                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(tradingUnit.toLocaleString())}</StockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                        <StockAnalyzeValueTextBox>
-                                            <StockAnalyzeValueText>테스트 횟수</StockAnalyzeValueText>
-                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(testCount.toLocaleString())}</StockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                    </StockAnalyzeValueColumn>
-                                </StockAnalyzeValueColumnBox>
+                                <StockAnalyzeOperationDetailBox>
+                                    <OperationExplainTitle>{wrapTextWithLang("서비스 운영 방식")}</OperationExplainTitle>
+                                    <OperationExplainSubTitle>{wrapTextWithLang("매수/매도 전략")}</OperationExplainSubTitle>
+                                    <OperationExplainContent>{wrapTextWithLang("AI 모델은 과거 데이터와 현재 시장 상황을 분석하여 다음 날의 주가 움직임을 예측합니다.\n예측 결과에 따라 매수(Buy), 매도(Sell), 또는 보유(Hold) 결정을 내립니다.")}</OperationExplainContent>
+                                </StockAnalyzeOperationDetailBox>
                             </StockTestAnalyzeBox>
                         </StockDetailAnalyzeSectionInnerContainer>
                     </StockDetailAnalyzeSectionContainer>
@@ -391,16 +366,6 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                                         {wrapTextWithLang(formattedAverageProfit)}
                                     </p>
                                 </div>
-                                {/*<StockAnalyzeValueColumn>*/}
-                                {/*    <StockAnalyzeValue valueText={"초기 자본금"} value={initialCapital.toLocaleString()}/>*/}
-                                {/*    <StockAnalyzeValue valueText={"테스트 시작일"} value={testResult.startDate || "N/A"}/>*/}
-                                {/*    <StockAnalyzeValue valueText={"테스트 종료일"} value={testResult.endDate || "N/A"}/>*/}
-                                {/*</StockAnalyzeValueColumn>*/}
-                                {/*<StockAnalyzeValueColumn>*/}
-                                {/*    <StockAnalyzeValue valueText={"종료 후 자본금"} value={endCapital.toLocaleString()}/>*/}
-                                {/*    <StockAnalyzeValue valueText={"거래 단위"} value={tradingUnit.toLocaleString()}/>*/}
-                                {/*    <StockAnalyzeValue valueText={"테스트 횟수"} value={testCount.toLocaleString()}/>*/}
-                                {/*</StockAnalyzeValueColumn>*/}
                             </div>
                             <div>
                                 <p>{wrapTextWithLang(`AI 추천 : ${predictionResult.action}`)}</p>
@@ -417,4 +382,4 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
     );
 };
 
-export default StockDetailAnalyzeSection;
+export default StockDetailAnalyzeOperationSection;
