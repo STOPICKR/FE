@@ -149,7 +149,7 @@ const StockTestAnalyzeBox = styled.div`
 const MobileStockTestAnalyzeBox = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1.875rem;
+    gap: 1.2em;
     justify-content: center;
     align-items: center;
 `
@@ -265,7 +265,7 @@ const MobileStockAnalyzeValueColumnBox = styled.div`
     display: flex;
     flex: 3;
     width: 100%;
-    gap: 1.875rem;
+    gap: 1.2em;
 `;
 
 const StockAnalyzeValueColumn = styled.div`
@@ -273,6 +273,13 @@ const StockAnalyzeValueColumn = styled.div`
     flex: 1;
     flex-direction: column;
     gap: 1.875rem;
+`;
+
+const MobileStockAnalyzeValueColumn = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 1.2em;
 `;
 
 const StockAnalyzeOperationDetailBox = styled.div`
@@ -334,9 +341,12 @@ const OperationExplainContent = styled.p`
 const StockAnalyzeValueTextBox = styled.div`
     display: flex;
     flex: 1;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     padding: 1.25em;
     border-radius: 1.125em;
+    gap: 0.5em;
     background-color: rgba(238, 238, 238, 0.87);
 `
 
@@ -468,7 +478,7 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                                     </StockReturnsPercentTextBox>
                                 </MobileStockReturnsPercentBox>
                                 <MobileStockAnalyzeValueColumnBox>
-                                    <StockAnalyzeValueColumn>
+                                    <MobileStockAnalyzeValueColumn>
                                         <StockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>초기 자본금</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(initialCapital.toLocaleString())}</MobileStockAnalyzeValueTextRight>
@@ -481,8 +491,8 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                                             <MobileStockAnalyzeValueText>테스트 종료일</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testResult.endDate || "N/A")}</MobileStockAnalyzeValueTextRight>
                                         </StockAnalyzeValueTextBox>
-                                    </StockAnalyzeValueColumn>
-                                    <StockAnalyzeValueColumn>
+                                    </MobileStockAnalyzeValueColumn>
+                                    <MobileStockAnalyzeValueColumn>
                                         <StockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>종료 후 자본금</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(endCapital.toLocaleString())}</MobileStockAnalyzeValueTextRight>
@@ -495,7 +505,7 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                                             <MobileStockAnalyzeValueText>테스트 횟수</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testCount.toLocaleString())}</MobileStockAnalyzeValueTextRight>
                                         </StockAnalyzeValueTextBox>
-                                    </StockAnalyzeValueColumn>
+                                    </MobileStockAnalyzeValueColumn>
                                 </MobileStockAnalyzeValueColumnBox>
                             </MobileStockTestAnalyzeBox>
                         </MobileStockDetailAnalyzeSectionInnerContainer>

@@ -144,6 +144,16 @@ const StockReturnsTextBox = styled.div`
     border-top-right-radius: 2.25em;
 `
 
+const MobileStockReturnsTextBox = styled.div`
+    display: flex;
+    flex: 1.5;
+    background-color: #264653;
+    padding: 1.2em 0;
+    width: 100%;
+    border-top-left-radius: 2.25em;
+    border-top-right-radius: 2.25em;
+`
+
 const StockReturnsText = styled.p`
     display: flex;
     flex: 1;
@@ -243,7 +253,7 @@ const StockAnalyzeOperationDetailBox = styled.div`
 const MobileStockAnalyzeOperationDetailBox = styled.div`
     display: flex;
     flex-direction: column;
-    flex: 3;
+    flex: 1.7;
     justify-content: space-between;
     gap: 0.5em;
 `
@@ -397,11 +407,11 @@ const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
                             </StockTitleInnerBox>
                             <StockTestAnalyzeBox>
                                 <StockReturnsPercentBox>
-                                    <StockReturnsTextBox>
+                                    <MobileStockReturnsTextBox>
                                         <StockReturnsText>
                                             AI 추천
                                         </StockReturnsText>
-                                    </StockReturnsTextBox>
+                                    </MobileStockReturnsTextBox>
                                     <StockReturnsPercentTextBox>
                                         <StockPredictActionText>
                                             {wrapTextWithLang(predictionResult.action)}
