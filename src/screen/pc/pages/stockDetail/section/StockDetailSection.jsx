@@ -91,6 +91,7 @@ const StockTitle = styled.p`
 const MobileStockTitle = styled.p`
     font-size: 1.2em;
     font-weight: bold;
+    padding-left: 0.5em;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }

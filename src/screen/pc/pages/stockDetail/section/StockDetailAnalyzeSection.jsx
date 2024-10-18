@@ -40,11 +40,28 @@ const StockDetailAnalyzeSectionInnerContainer = styled.div`
     border-radius: 2.25rem;
 `
 
+const MobileStockDetailAnalyzeSectionInnerContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 1.8em 1em 1em 1em;
+    gap: 1.875rem;
+    background-color: white;
+    border-radius: 2.25rem;
+`
+
 const StockTitleInnerBox = styled.div`
     display: flex;
     justify-content: start;
     align-items: baseline;
     gap: 1em;
+`;
+
+const MobileStockTitleInnerBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: baseline;
+    gap: 0.5em;
 `;
 
 const StockTitle = styled.p`
@@ -59,8 +76,9 @@ const StockTitle = styled.p`
 `;
 
 const MobileStockTitle = styled.p`
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: bold;
+    padding-left: 0.5em;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
@@ -72,6 +90,18 @@ const MobileStockTitle = styled.p`
 const StockSubTitle = styled.p`
     font-size: 1.8em;
     font-weight: bold;
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
+`;
+
+const MobileStockSubTitle = styled.p`
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-left: 0.5em;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
@@ -116,10 +146,26 @@ const StockTestAnalyzeBox = styled.div`
     align-items: center;
 `
 
+const MobileStockTestAnalyzeBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    justify-content: center;
+    align-items: center;
+`
+
 const StockReturnsPercentBox = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
+    justify-content: center;
+    align-items: center;
+`;
+
+const MobileStockReturnsPercentBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     justify-content: center;
     align-items: center;
 `;
@@ -215,6 +261,13 @@ const StockAnalyzeValueColumnBox = styled.div`
     gap: 1.875rem;
 `;
 
+const MobileStockAnalyzeValueColumnBox = styled.div`
+    display: flex;
+    flex: 3;
+    width: 100%;
+    gap: 1.875rem;
+`;
+
 const StockAnalyzeValueColumn = styled.div`
     display: flex;
     flex: 1;
@@ -294,8 +347,21 @@ const StockAnalyzeValueText = styled.p`
     color: #5F6466;
 `
 
+const MobileStockAnalyzeValueText = styled.p`
+    font-size: 1em;
+    font-family: pretendard;
+    font-weight: bold;
+    color: #5F6466;
+`
+
 const StockAnalyzeValueTextRight = styled.div`
     font-size: 1.1em;
+    font-family: pretendard;
+    font-weight: bold;
+`
+
+const MobileStockAnalyzeValueTextRight = styled.div`
+    font-size: 1em;
     font-family: pretendard;
     font-weight: bold;
 `
@@ -383,33 +449,56 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
             {isMobile &&
                 <StockDetailAnalyzeSectionWrapper>
                     <StockDetailAnalyzeSectionContainer>
-                        <StockDetailAnalyzeSectionInnerContainer>
-                            <p>{wrapTextWithLang("STOPICKR AI 기반 주식 분석")}</p>
-                            <div>
-                                <div>
-                                    <p profit={testResult.averageProfit}>
-                                        {wrapTextWithLang(formattedAverageProfit)}
-                                    </p>
-                                </div>
-                                {/*<StockAnalyzeValueColumn>*/}
-                                {/*    <StockAnalyzeValue valueText={"초기 자본금"} value={initialCapital.toLocaleString()}/>*/}
-                                {/*    <StockAnalyzeValue valueText={"테스트 시작일"} value={testResult.startDate || "N/A"}/>*/}
-                                {/*    <StockAnalyzeValue valueText={"테스트 종료일"} value={testResult.endDate || "N/A"}/>*/}
-                                {/*</StockAnalyzeValueColumn>*/}
-                                {/*<StockAnalyzeValueColumn>*/}
-                                {/*    <StockAnalyzeValue valueText={"종료 후 자본금"} value={endCapital.toLocaleString()}/>*/}
-                                {/*    <StockAnalyzeValue valueText={"거래 단위"} value={tradingUnit.toLocaleString()}/>*/}
-                                {/*    <StockAnalyzeValue valueText={"테스트 횟수"} value={testCount.toLocaleString()}/>*/}
-                                {/*</StockAnalyzeValueColumn>*/}
-                            </div>
-                            <div>
-                                <p>{wrapTextWithLang(`AI 추천 : ${predictionResult.action}`)}</p>
-                                <p>{wrapTextWithLang("서비스 운영 방식")}</p>
-                                <p>{wrapTextWithLang("매수/매도 전략")}</p>
-                                <p>{wrapTextWithLang("AI 모델은 과거 데이터와 현재 시장 상황을 분석하여 다음 날의 주가 움직임을 예측합니다. 예측 결과에 따라 매수, 매도, 또는 보유 결정을 내립니다.")}</p>
-                            </div>
-                        </StockDetailAnalyzeSectionInnerContainer>
-
+                        <MobileStockDetailAnalyzeSectionInnerContainer>
+                            <MobileStockTitleInnerBox>
+                                <MobileStockTitle>{wrapTextWithLang("STOPICKR AI 테스트 결과 분석")}</MobileStockTitle>
+                                {/*<MobileStockSubTitle>{wrapTextWithLang("테스트 결과 분석")}</MobileStockSubTitle>*/}
+                            </MobileStockTitleInnerBox>
+                            <MobileStockTestAnalyzeBox>
+                                <MobileStockReturnsPercentBox>
+                                    <StockReturnsTextBox>
+                                        <StockReturnsText>
+                                            테스트 수익률
+                                        </StockReturnsText>
+                                    </StockReturnsTextBox>
+                                    <StockReturnsPercentTextBox>
+                                        <StockReturnsPercentText profit={testResult.averageProfit}>
+                                            {wrapTextWithLang(formattedAverageProfit)}
+                                        </StockReturnsPercentText>
+                                    </StockReturnsPercentTextBox>
+                                </MobileStockReturnsPercentBox>
+                                <MobileStockAnalyzeValueColumnBox>
+                                    <StockAnalyzeValueColumn>
+                                        <StockAnalyzeValueTextBox>
+                                            <MobileStockAnalyzeValueText>초기 자본금</MobileStockAnalyzeValueText>
+                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(initialCapital.toLocaleString())}</MobileStockAnalyzeValueTextRight>
+                                        </StockAnalyzeValueTextBox>
+                                        <StockAnalyzeValueTextBox>
+                                            <MobileStockAnalyzeValueText>테스트 시작일</MobileStockAnalyzeValueText>
+                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testResult.startDate || "N/A")}</MobileStockAnalyzeValueTextRight>
+                                        </StockAnalyzeValueTextBox>
+                                        <StockAnalyzeValueTextBox>
+                                            <MobileStockAnalyzeValueText>테스트 종료일</MobileStockAnalyzeValueText>
+                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testResult.endDate || "N/A")}</MobileStockAnalyzeValueTextRight>
+                                        </StockAnalyzeValueTextBox>
+                                    </StockAnalyzeValueColumn>
+                                    <StockAnalyzeValueColumn>
+                                        <StockAnalyzeValueTextBox>
+                                            <MobileStockAnalyzeValueText>종료 후 자본금</MobileStockAnalyzeValueText>
+                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(endCapital.toLocaleString())}</MobileStockAnalyzeValueTextRight>
+                                        </StockAnalyzeValueTextBox>
+                                        <StockAnalyzeValueTextBox>
+                                            <MobileStockAnalyzeValueText>거래 단위</MobileStockAnalyzeValueText>
+                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(tradingUnit.toLocaleString())}</MobileStockAnalyzeValueTextRight>
+                                        </StockAnalyzeValueTextBox>
+                                        <StockAnalyzeValueTextBox>
+                                            <MobileStockAnalyzeValueText>테스트 횟수</MobileStockAnalyzeValueText>
+                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testCount.toLocaleString())}</MobileStockAnalyzeValueTextRight>
+                                        </StockAnalyzeValueTextBox>
+                                    </StockAnalyzeValueColumn>
+                                </MobileStockAnalyzeValueColumnBox>
+                            </MobileStockTestAnalyzeBox>
+                        </MobileStockDetailAnalyzeSectionInnerContainer>
                     </StockDetailAnalyzeSectionContainer>
                 </StockDetailAnalyzeSectionWrapper>
             }

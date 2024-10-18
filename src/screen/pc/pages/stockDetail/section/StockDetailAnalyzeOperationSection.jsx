@@ -40,6 +40,15 @@ const StockDetailAnalyzeSectionInnerContainer = styled.div`
     border-radius: 2.25rem;
 `
 
+const MobileStockDetailAnalyzeSectionInnerContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 1.8em 1em 1em 1em;
+    gap: 1.875rem;
+    background-color: white;
+    border-radius: 2.25rem;
+`
+
 const StockTitleInnerBox = styled.div`
     display: flex;
     justify-content: start;
@@ -59,8 +68,9 @@ const StockTitle = styled.p`
 `;
 
 const MobileStockTitle = styled.p`
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: bold;
+    padding-left: 0.5em;
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
@@ -230,6 +240,14 @@ const StockAnalyzeOperationDetailBox = styled.div`
     gap: 1em;
 `
 
+const MobileStockAnalyzeOperationDetailBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+    justify-content: space-between;
+    gap: 0.5em;
+`
+
 const OperationExplain = styled.div`
     display: flex;
     flex-direction: column;
@@ -266,6 +284,20 @@ const OperationExplainSubTitle = styled.p`
 
 const OperationExplainContent = styled.p`
     font-size: 1.2em;
+    white-space: pre-line;
+    line-height: 1.3;
+
+    [lang="en"] {
+        font-family: 'Inter', sans-serif;
+    }
+
+    [lang="ko"] {
+        font-family: 'pretendard', sans-serif;
+    }
+`;
+
+const MobileOperationExplainContent = styled.p`
+    font-size: 1em;
     white-space: pre-line;
     line-height: 1.3;
 
@@ -329,8 +361,8 @@ const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
                     <StockDetailAnalyzeSectionContainer>
                         <StockDetailAnalyzeSectionInnerContainer>
                             <StockTitleInnerBox>
-                                <StockTitle>{wrapTextWithLang("테스트 결과 기반")}</StockTitle>
-                                <StockSubTitle>{wrapTextWithLang("매도/매수 전략")}</StockSubTitle>
+                                <StockTitle>{wrapTextWithLang("테스트 결과 기반 매도/매수 전력")}</StockTitle>
+                                {/*<StockSubTitle>{wrapTextWithLang("매도/매수 전략")}</StockSubTitle>*/}
                             </StockTitleInnerBox>
                             <StockTestAnalyzeBox>
                                 <StockReturnsPercentBox>
@@ -358,23 +390,31 @@ const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
             {isMobile &&
                 <StockDetailAnalyzeSectionWrapper>
                     <StockDetailAnalyzeSectionContainer>
-                        <StockDetailAnalyzeSectionInnerContainer>
-                            <p>{wrapTextWithLang("STOPICKR AI 기반 주식 분석")}</p>
-                            <div>
-                                <div>
-                                    <p profit={testResult.averageProfit}>
-                                        {wrapTextWithLang(formattedAverageProfit)}
-                                    </p>
-                                </div>
-                            </div>
-                            <div>
-                                <p>{wrapTextWithLang(`AI 추천 : ${predictionResult.action}`)}</p>
-                                <p>{wrapTextWithLang("서비스 운영 방식")}</p>
-                                <p>{wrapTextWithLang("매수/매도 전략")}</p>
-                                <p>{wrapTextWithLang("AI 모델은 과거 데이터와 현재 시장 상황을 분석하여 다음 날의 주가 움직임을 예측합니다. 예측 결과에 따라 매수, 매도, 또는 보유 결정을 내립니다.")}</p>
-                            </div>
-                        </StockDetailAnalyzeSectionInnerContainer>
-
+                        <MobileStockDetailAnalyzeSectionInnerContainer>
+                            <StockTitleInnerBox>
+                                <MobileStockTitle>{wrapTextWithLang("테스트 결과 기반 매도/매수 전략")}</MobileStockTitle>
+                                {/*<StockSubTitle>{wrapTextWithLang("매도/매수 전략")}</StockSubTitle>*/}
+                            </StockTitleInnerBox>
+                            <StockTestAnalyzeBox>
+                                <StockReturnsPercentBox>
+                                    <StockReturnsTextBox>
+                                        <StockReturnsText>
+                                            AI 추천
+                                        </StockReturnsText>
+                                    </StockReturnsTextBox>
+                                    <StockReturnsPercentTextBox>
+                                        <StockPredictActionText>
+                                            {wrapTextWithLang(predictionResult.action)}
+                                        </StockPredictActionText>
+                                    </StockReturnsPercentTextBox>
+                                </StockReturnsPercentBox>
+                                <MobileStockAnalyzeOperationDetailBox>
+                                    <OperationExplainSubTitle>{wrapTextWithLang("서비스 운영 방식")}</OperationExplainSubTitle>
+                                    <MobileOperationExplainContent>{wrapTextWithLang("매수/매도 전략")}</MobileOperationExplainContent>
+                                    <MobileOperationExplainContent>{wrapTextWithLang("AI 모델은 과거 데이터와 현재 시장 상황을 분석하여 다음 날의 주가 움직임을 예측합니다.\n예측 결과에 따라 매수(Buy), 매도(Sell), 또는 보유(Hold) 결정을 내립니다.")}</MobileOperationExplainContent>
+                                </MobileStockAnalyzeOperationDetailBox>
+                            </StockTestAnalyzeBox>
+                        </MobileStockDetailAnalyzeSectionInnerContainer>
                     </StockDetailAnalyzeSectionContainer>
                 </StockDetailAnalyzeSectionWrapper>
             }
