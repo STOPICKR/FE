@@ -7,7 +7,7 @@ const FooterWrapper = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #E7EAF4;     
-    padding: 6.25rem 0 6.25rem 0;
+    padding: 4em 0;
 `;
 
 const MobileFooterWrapper = styled.div`
@@ -15,7 +15,7 @@ const MobileFooterWrapper = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #E7EAF4;     
-    padding: 3em 0;
+    padding: 2.5em 0;
 `;
 
 const ContentContainer = styled.div`

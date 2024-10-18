@@ -341,6 +341,17 @@ const OperationExplainContent = styled.p`
 const StockAnalyzeValueTextBox = styled.div`
     display: flex;
     flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25em;
+    border-radius: 1.125em;
+    gap: 0.5em;
+    background-color: rgba(238, 238, 238, 0.87);
+`
+
+const MobileStockAnalyzeValueTextBox = styled.div`
+    display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -479,32 +490,32 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                                 </MobileStockReturnsPercentBox>
                                 <MobileStockAnalyzeValueColumnBox>
                                     <MobileStockAnalyzeValueColumn>
-                                        <StockAnalyzeValueTextBox>
+                                        <MobileStockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>초기 자본금</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(initialCapital.toLocaleString())}</MobileStockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                        <StockAnalyzeValueTextBox>
+                                        </MobileStockAnalyzeValueTextBox>
+                                        <MobileStockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>테스트 시작일</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testResult.startDate || "N/A")}</MobileStockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                        <StockAnalyzeValueTextBox>
+                                        </MobileStockAnalyzeValueTextBox>
+                                        <MobileStockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>테스트 종료일</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testResult.endDate || "N/A")}</MobileStockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
+                                        </MobileStockAnalyzeValueTextBox>
                                     </MobileStockAnalyzeValueColumn>
                                     <MobileStockAnalyzeValueColumn>
-                                        <StockAnalyzeValueTextBox>
+                                        <MobileStockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>종료 후 자본금</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(endCapital.toLocaleString())}</MobileStockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                        <StockAnalyzeValueTextBox>
+                                        </MobileStockAnalyzeValueTextBox>
+                                        <MobileStockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>거래 단위</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(tradingUnit.toLocaleString())}</MobileStockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
-                                        <StockAnalyzeValueTextBox>
+                                        </MobileStockAnalyzeValueTextBox>
+                                        <MobileStockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>테스트 횟수</MobileStockAnalyzeValueText>
                                             <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testCount.toLocaleString())}</MobileStockAnalyzeValueTextRight>
-                                        </StockAnalyzeValueTextBox>
+                                        </MobileStockAnalyzeValueTextBox>
                                     </MobileStockAnalyzeValueColumn>
                                 </MobileStockAnalyzeValueColumnBox>
                             </MobileStockTestAnalyzeBox>
