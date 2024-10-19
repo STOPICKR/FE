@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import {
     executeSearchStocks,
     executeGetWeeklyStocks,
     executeAddStockToWeekly,
     executeRemoveStockFromWeekly,
-    executeFetchMultipleStockData, // 이 함수로 교체합니다.
+    executeFetchMultipleStockData,
 } from "../../../../api/ApiService";
 import Header from "../Header";
 import Footer from "../Footer";
@@ -131,7 +131,7 @@ const AdminPage = () => {
 
     return (
         <div>
-            <Header />
+            <Header/>
             <h1>주간 추천 주식 관리</h1>
 
             <div>
@@ -145,7 +145,7 @@ const AdminPage = () => {
                 <button onClick={handleSearch} disabled={loading}>
                     {loading ? "검색 중..." : "검색"}
                 </button>
-                {error && <p style={{ color: "red" }}>{error}</p>}
+                {error && <p style={{color: "red"}}>{error}</p>}
                 <ul>
                     {searchResults.map((stock) => (
                         <li key={stock.id}>
@@ -174,7 +174,7 @@ const AdminPage = () => {
                     {loading ? "저장 중..." : "데이터 저장하기"}
                 </button>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 };

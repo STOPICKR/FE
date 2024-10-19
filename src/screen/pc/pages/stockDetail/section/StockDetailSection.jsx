@@ -102,9 +102,11 @@ const MobileStockTitle = styled.p`
 
 const StockCode = styled.p`
     font-size: 1.1em;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
@@ -122,7 +124,7 @@ const MobileStockCode = styled.p`
 
 const StockGraphWrapper = styled.div`
     width: 100%;
-    height: 100%;  /* 원하는 크기로 설정 */
+    height: 100%;  
     margin-top: 1rem;
 `;
 

@@ -67,9 +67,11 @@ const MobileStockTitleInnerBox = styled.div`
 const StockTitle = styled.p`
     font-size: 1.8em;
     font-weight: bold;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
@@ -79,9 +81,11 @@ const MobileStockTitle = styled.p`
     font-size: 1.3em;
     font-weight: bold;
     padding-left: 0.5em;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
@@ -90,53 +94,14 @@ const MobileStockTitle = styled.p`
 const StockSubTitle = styled.p`
     font-size: 1.8em;
     font-weight: bold;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
-`;
-
-const MobileStockSubTitle = styled.p`
-    font-size: 1.3em;
-    font-weight: bold;
-    padding-left: 0.5em;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
-`;
-
-const MobileStockCode = styled.p`
-    font-size: 0.8em;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
-`;
-
-const StockTitleContainer = styled.p`
-    font-size: 1.8em;
-    font-weight: bold;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
-`;
-
-const StockDetail = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.875rem;
-    padding: 1.25rem 2.5rem 2.5rem 2.5rem;
 `;
 
 const StockTestAnalyzeBox = styled.div`
@@ -189,9 +154,11 @@ const StockReturnsText = styled.p`
     font-weight: bold;
     white-space: pre-line;
     color: white;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
@@ -214,36 +181,6 @@ const StockReturnsPercentText = styled.p`
     font-family: pretendard;
     font-weight: bold;
     color: ${({profit}) => (profit >= 0 ? 'red' : 'blue')};
-    white-space: pre-line;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
-`;
-
-const StockPredictActionText = styled.p`
-    font-size: 2.5em;
-    font-family: pretendard;
-    font-weight: bold;
-    color: black;
-    white-space: pre-line;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
-`;
-
-const StockAIRecommendText = styled.p`
-    font-size: 2rem;
-    font-family: pretendard;
-    font-weight: bold;
-    color: red;
     white-space: pre-line;
 
     [lang="en"] {
@@ -280,62 +217,6 @@ const MobileStockAnalyzeValueColumn = styled.div`
     flex: 1;
     flex-direction: column;
     gap: 1.2em;
-`;
-
-const StockAnalyzeOperationDetailBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex: 3;
-    justify-content: space-between;
-    gap: 1em;
-`
-
-const OperationExplain = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 1.25rem 2.5rem;
-    gap: 1.875rem;
-`;
-
-const OperationExplainTitle = styled.p`
-    font-size: 1.5em;
-    font-weight: bold;
-    white-space: pre-line;
-
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
-`;
-
-const OperationExplainSubTitle = styled.p`
-    font-size: 1.2em;
-    white-space: pre-line;
-    font-weight: bold;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
-`;
-
-const OperationExplainContent = styled.p`
-    font-size: 1.2em;
-    white-space: pre-line;
-    line-height: 1.3;
-
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
 `;
 
 const StockAnalyzeValueTextBox = styled.div`
@@ -406,8 +287,6 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
     const tradingUnit = '10주';
     const profitRate = ((endCapital - initialCapital) / initialCapital) * 100;
     const formattedAverageProfit = profitRate !== undefined ? `${profitRate.toFixed(2)}%` : "N/A";
-
-    const formattedEndCapital = testResult.endCapital ? testResult.endCapital.toLocaleString() : "N/A";
 
     return (
         <>

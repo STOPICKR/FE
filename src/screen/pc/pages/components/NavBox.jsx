@@ -23,7 +23,7 @@ const NavBoxWrapper = styled.div`
     height: 20rem;
     align-items: start;
     border-radius: 2.25rem;
-    background-color: ${({ $navBackgroundColor }) => $navBackgroundColor || "white"};
+    background-color: ${({$navBackgroundColor}) => $navBackgroundColor || "white"};
     padding: 2.5rem;
     position: relative;
 `;

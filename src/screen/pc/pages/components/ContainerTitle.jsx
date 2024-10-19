@@ -25,19 +25,21 @@ const TitleWrapper = styled.div`
 
 const Title = styled.span`
     color: white;
-    font-family: pretendard,serif;
+    font-family: pretendard, serif;
     font-size: 1.8em;
     font-weight: bold;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
 `;
 
 const ContainerTitle = ({subTitle}) => {
-    return(
+    return (
         <TitleWrapper>
             <Title>{wrapTextWithLang("STOPICKR에서")}</Title>
             <Title>{wrapTextWithLang(subTitle)}</Title>

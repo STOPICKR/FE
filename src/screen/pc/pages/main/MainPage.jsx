@@ -3,20 +3,15 @@ import Footer from "../Footer";
 import Header from "../Header";
 import NavSection from "./section/NavSection";
 import StockListIntroductionSection from "./section/StockListIntroductionSection";
-import StockAnalyzeIntroductionSection from "./section/StockAnalyzeIntroductionSection";
 
 const MainPage = () => {
-    return(
-        <div>
+    return (<div>
             <Header/>
             <NavSection/>
             <StockListIntroductionSection/>
-            {/*<StockAnalyzeIntroductionSection/>*/}
-            {/*<StockSection/>*/}
-            {/*<IndexSection/>*/}
+
             <Footer/>
-        </div>
-    );
+        </div>);
 };
 
 export default MainPage;

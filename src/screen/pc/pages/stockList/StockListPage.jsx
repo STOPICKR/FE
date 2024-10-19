@@ -4,13 +4,11 @@ import Footer from "../Footer";
 import StockListSection from "./section/StockListSection";
 
 const StockListPage = () => {
-    return(
-        <div>
+    return (<div>
             <Header/>
             <StockListSection/>
             <Footer/>
-        </div>
-    );
+        </div>);
 };
 
 export default StockListPage;

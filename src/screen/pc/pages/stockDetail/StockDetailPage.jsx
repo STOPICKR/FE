@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {useLocation} from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
 import StockDetailSection from "./section/StockDetailSection";
 import StockDetailAnalyzeSection from "./section/StockDetailAnalyzeSection";
-import { fetchTestResultByStockId, fetchPredictionResultByStockId } from "../../../../api/ApiService";
+import {fetchTestResultByStockId, fetchPredictionResultByStockId} from "../../../../api/ApiService";
 import StockDetailAnalyzeOperationSection from "./section/StockDetailAnalyzeOperationSection";
 
 const StockDetailPage = () => {
-    const { state } = useLocation();
+    const {state} = useLocation();
     const stock = state?.stock;
 
     const [testResult, setTestResult] = useState(null);
@@ -30,10 +30,9 @@ const StockDetailPage = () => {
         fetchData();
     }, [stock.isinCd]);
 
-    return (
-        <div>
-            <Header />
-            <StockDetailSection stock={stock} />
+    return (<div>
+            <Header/>
+            <StockDetailSection stock={stock}/>
             <StockDetailAnalyzeSection
                 testResult={testResult}
                 predictionResult={predictionResult}
@@ -41,9 +40,8 @@ const StockDetailPage = () => {
             <StockDetailAnalyzeOperationSection
                 testResult={testResult}
                 predictionResult={predictionResult}/>
-            <Footer />
-        </div>
-    );
+            <Footer/>
+        </div>);
 };
 
 export default StockDetailPage;

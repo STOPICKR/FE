@@ -25,12 +25,14 @@ const TitleWrapper = styled.div`
 
 const Title = styled.span`
     color: white;
-    font-family: pretendard,serif;
+    font-family: pretendard, serif;
     font-size: 1.3em;
     font-weight: bold;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }

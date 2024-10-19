@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import NavBox from "../../components/NavBox";
 import stock_character from "../../../../../images/stock_character.png"
 import {useMediaQuery} from "react-responsive";
 

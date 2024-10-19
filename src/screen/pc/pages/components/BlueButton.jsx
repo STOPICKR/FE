@@ -9,7 +9,7 @@ const wrapTextWithLang = (text) => {
                 const lang = isKorean ? 'ko' : 'en';
                 return <span key={index} lang={lang}>{char}</span>;
             })}
-            <br />
+            <br/>
         </React.Fragment>
     ));
 };
@@ -22,12 +22,15 @@ const ButtonWrapper = styled.div`
     color: white;
     width: auto;
     height: auto;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
+
     cursor: pointer;
     border-radius: 30px;
     padding: 0.625rem 1.2rem;
@@ -35,7 +38,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const BlueButton = ({buttonText, onClick}) => {
-    return(
+    return (
         <ButtonWrapper onClick={onClick}>{wrapTextWithLang(buttonText)}</ButtonWrapper>
     );
 };

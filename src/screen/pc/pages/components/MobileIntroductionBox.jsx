@@ -10,7 +10,7 @@ const wrapTextWithLang = (text) => {
                 const lang = isKorean ? 'ko' : 'en';
                 return <span key={index} lang={lang}>{char}</span>;
             })}
-            <br />
+            <br/>
         </React.Fragment>
     ));
 };
@@ -35,9 +35,11 @@ const IntroductionTitleContainer = styled.div`
 const IntroductionBoxSubTitle = styled.p`
     font-size: 0.7em;
     white-space: pre-line;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
@@ -48,9 +50,11 @@ const IntroductionBoxTitle = styled.p`
     font-weight: bold;
     white-space: pre-line;
     line-height: 1.2;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
@@ -60,9 +64,11 @@ const IntroductionBoxContent = styled.p`
     font-size: 0.8em;
     white-space: pre-line;
     line-height: 1.5;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
@@ -80,16 +86,18 @@ const IntroductionBoxDetail = styled.p`
     font-size: 0.8em;
     white-space: pre-line;
     opacity: 0.5;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }
 `;
 
 const MobileIntroductionBox = ({subTitle, title, content, detail, buttonText, onClick}) => {
-    return(
+    return (
         <IntroductionBoxWrapper>
             <IntroductionTitleContainer>
                 <IntroductionBoxSubTitle>{wrapTextWithLang(subTitle)}</IntroductionBoxSubTitle>

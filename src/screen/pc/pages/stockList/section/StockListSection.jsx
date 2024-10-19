@@ -96,53 +96,19 @@ const StockListSection = () => {
         navigate(`/stock-detail/${stock.isinCd}`, {state: {stock}}); // 주식 데이터와 함께 이동
     };
 
-    return (
-        <>
-            {isOverTablet &&
-                <StockDetailSectionWrapper>
-                    <StockDetailSectionContainer>
-                        <ContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"}/>
-                        <StockDetailBoxContainer>
-                            <IntroductionBox
-                                subTitle={"Selected"}
-                                title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nSTOPICKR 선정 주식 종목`}
-                                content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n"
-                                    + "2. 선정된 종목의 AI 분석을 확인해보세요\n"
-                                    + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
-                                detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
-                            <StockDetailBoxRow>
-                                {stocks.slice(0, 10).map((stock, index) => (
-                                    <StockBoxStyled>
-                                        <StockBox
-                                            key={index}
-                                            stockNumber={index + 1}
-                                            stockTitle={stock.itmsNm}
-                                            stockCode={stock.isinCd}
-                                            stockData={stock.stockData}
-                                            onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
-                                        />
-                                    </StockBoxStyled>
-                                ))}
-                            </StockDetailBoxRow>
-                        </StockDetailBoxContainer>
-                    </StockDetailSectionContainer>
-                </StockDetailSectionWrapper>
-            }
-            {isMobile &&
-                <StockDetailSectionWrapper>
-                    <StockDetailSectionContainer>
-                        <MobileContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"}/>
-                        <StockDetailBoxContainer>
-                            <MobileIntroductionBox
-                                subTitle={"Selected"}
-                                title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nSTOPICKR 선정 주식 종목`}
-                                content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n"
-                                    + "2. 선정된 종목의 AI 분석을 확인해보세요\n"
-                                    + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
-                                detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
-                            <MobileStockDetailBoxRow>
-                                {stocks.slice(0, 10).map((stock, index) => (
-                                    <MobileStockBox
+    return (<>
+            {isOverTablet && <StockDetailSectionWrapper>
+                <StockDetailSectionContainer>
+                    <ContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"}/>
+                    <StockDetailBoxContainer>
+                        <IntroductionBox
+                            subTitle={"Selected"}
+                            title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nSTOPICKR 선정 주식 종목`}
+                            content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n" + "2. 선정된 종목의 AI 분석을 확인해보세요\n" + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
+                            detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
+                        <StockDetailBoxRow>
+                            {stocks.slice(0, 10).map((stock, index) => (<StockBoxStyled>
+                                    <StockBox
                                         key={index}
                                         stockNumber={index + 1}
                                         stockTitle={stock.itmsNm}
@@ -150,14 +116,34 @@ const StockListSection = () => {
                                         stockData={stock.stockData}
                                         onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
                                     />
-                                ))}
-                            </MobileStockDetailBoxRow>
-                        </StockDetailBoxContainer>
-                    </StockDetailSectionContainer>
-                </StockDetailSectionWrapper>
-            }
-        </>
-    );
+                                </StockBoxStyled>))}
+                        </StockDetailBoxRow>
+                    </StockDetailBoxContainer>
+                </StockDetailSectionContainer>
+            </StockDetailSectionWrapper>}
+            {isMobile && <StockDetailSectionWrapper>
+                <StockDetailSectionContainer>
+                    <MobileContainerTitle subTitle={"다양한 주식 추천을 알아보고 투자하세요!"}/>
+                    <StockDetailBoxContainer>
+                        <MobileIntroductionBox
+                            subTitle={"Selected"}
+                            title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nSTOPICKR 선정 주식 종목`}
+                            content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n" + "2. 선정된 종목의 AI 분석을 확인해보세요\n" + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
+                            detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
+                        <MobileStockDetailBoxRow>
+                            {stocks.slice(0, 10).map((stock, index) => (<MobileStockBox
+                                    key={index}
+                                    stockNumber={index + 1}
+                                    stockTitle={stock.itmsNm}
+                                    stockCode={stock.isinCd}
+                                    stockData={stock.stockData}
+                                    onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
+                                />))}
+                        </MobileStockDetailBoxRow>
+                    </StockDetailBoxContainer>
+                </StockDetailSectionContainer>
+            </StockDetailSectionWrapper>}
+        </>);
 };
 
 export default StockListSection;

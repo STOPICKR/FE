@@ -1,7 +1,7 @@
 import React from 'react';
 import ApexChart from 'react-apexcharts';
 
-const StockGraph = ({ stockData }) => {
+const StockGraph = ({stockData}) => {
     const series = [
         {
             data: stockData.map(price => ({

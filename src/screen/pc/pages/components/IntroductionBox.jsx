@@ -60,9 +60,11 @@ const IntroductionBoxContent = styled.p`
     font-size: 1.1em;
     white-space: pre-line;
     line-height: 1.5;
+
     [lang="en"] {
         font-family: 'Inter', sans-serif;
     }
+
     [lang="ko"] {
         font-family: 'pretendard', sans-serif;
     }

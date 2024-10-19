@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import StockGraph from './StockGraph';
 
@@ -54,7 +54,7 @@ const StockValue = styled.p`
     font-family: pretendard;
 `;
 
-const MobileStockBox = ({ stockNumber, stockTitle, stockCode, stockData, onClick }) => {
+const MobileStockBox = ({stockNumber, stockTitle, stockCode, stockData, onClick}) => {
     const [latestPrice, setLatestPrice] = useState(null);
     const [latestDate, setLatestDate] = useState(null);
 
@@ -74,7 +74,7 @@ const MobileStockBox = ({ stockNumber, stockTitle, stockCode, stockData, onClick
             <StockTitle>{stockTitle}</StockTitle>
             <StockCode>{stockCode}</StockCode>
             <StockGraphWrapper>
-                <StockGraph stockData={stockData} />
+                <StockGraph stockData={stockData}/>
             </StockGraphWrapper>
             <StockDetailBox>
                 <StockTag>현재가</StockTag>

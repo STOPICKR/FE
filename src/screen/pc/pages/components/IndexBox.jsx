@@ -61,9 +61,8 @@ const translateIndexName = (indexName) => {
     return translations[indexName] || indexName; // 매칭되지 않는 경우 원래 이름 반환
 };
 
-const IndexBox = ({ indexTitle, indexPrice, indexDate }) => {
-    return (
-        <IndexBoxWrapper>
+const IndexBox = ({indexTitle, indexPrice, indexDate}) => {
+    return (<IndexBoxWrapper>
             <IndexTitle>{translateIndexName(indexTitle)}</IndexTitle> {/* 이름 변환 */}
             <IndexDetailBox>
                 <IndexPrice>현재가</IndexPrice>
@@ -73,8 +72,7 @@ const IndexBox = ({ indexTitle, indexPrice, indexDate }) => {
                 <IndexDate>기준일</IndexDate>
                 <IndexDate>{formatDate(indexDate)}</IndexDate> {/* 날짜 형식 변환 */}
             </IndexDetailBox>
-        </IndexBoxWrapper>
-    );
+        </IndexBoxWrapper>);
 };
 
 export default IndexBox;
