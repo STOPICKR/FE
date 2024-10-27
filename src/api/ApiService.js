@@ -35,7 +35,7 @@ export const executeAddStockToWeekly = (startDate, stockId) =>
     apiClient.post(`/stocks/weekly/${stockId}`, null, { params: { startDate } });
 
 export const executeRemoveStockFromWeekly = (startDate, stockId) =>
-    apiClient.delete(`/api/v1/stock/weekly/${stockId}`, { params: { startDate } });
+    apiClient.delete(`/stocks/weekly/${stockId}`, { params: { startDate } });
 
 export const executeFetchMultipleStockData = (stockRequests) =>
     apiClient.post(`/api/v1/stock/fetch-multiple-stocks`, stockRequests);
