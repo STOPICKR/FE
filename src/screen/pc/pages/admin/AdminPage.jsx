@@ -105,9 +105,7 @@ const AdminPage = () => {
         }
 
         const stockRequests = weeklyStocks.map(stock => ({
-            isinCd: stock.isinCd,
-            startDate: startDate,
-            endDate: endDate
+            isinCd: stock.isin_code,
         }));
 
         console.log(stockRequests);
