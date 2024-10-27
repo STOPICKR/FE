@@ -161,7 +161,7 @@ const AdminPage = () => {
                 <ul>
                     {weeklyStocks.map((stock) => (
                         <li key={stock.id}>
-                            {stock.itmsNm} ({stock.isinCd})
+                            {stock.itms_name} ({stock.isin_code})
                             <button onClick={() => handleRemoveStock(stock.id)} disabled={loading}>
                                 삭제
                             </button>
