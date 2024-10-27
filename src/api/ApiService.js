@@ -24,14 +24,15 @@ export const fetchPredictionResultByStockId = (stockId) =>
     apiClient.get(`/api/v1/stock-analyze/prediction-result/${stockId}`);
 
 //admin용
+// 주식 query로 검색
 export const executeSearchStocks = (query) =>
-    apiClient.get(`/api/v1/stock/search`, { params: { query } });
+    apiClient.get(`/stocks/`, { params: { query } });
 
 export const executeGetWeeklyStocks = (startDate) =>
-    apiClient.get(`/api/v1/stock/weekly`, { params: { startDate } });
+    apiClient.get(`/stocks/weekly`, { params: { startDate } });
 
 export const executeAddStockToWeekly = (startDate, stockId) =>
-    apiClient.post(`/api/v1/stock/weekly/${stockId}`, null, { params: { startDate } });
+    apiClient.post(`/stocks/weekly/${stockId}`, null, { params: { startDate } });
 
 export const executeRemoveStockFromWeekly = (startDate, stockId) =>
     apiClient.delete(`/api/v1/stock/weekly/${stockId}`, { params: { startDate } });

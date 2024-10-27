@@ -42,7 +42,6 @@ const AdminPage = () => {
                 }
             })
             .catch((error) => {
-                console.error("Error searching stocks:", error);
                 setError("주식을 검색하는 중 오류가 발생했습니다.");
             })
             .finally(() => {
@@ -58,7 +57,6 @@ const AdminPage = () => {
                 setWeeklyStocks(response.data);
             })
             .catch((error) => {
-                console.error("Error fetching weekly stocks:", error);
                 setError("주간 추천 주식을 가져오는 중 오류가 발생했습니다.");
             })
             .finally(() => {
@@ -149,7 +147,7 @@ const AdminPage = () => {
                 <ul>
                     {searchResults.map((stock) => (
                         <li key={stock.id}>
-                            {stock.itmsNm} ({stock.isinCd})
+                            {stock.itms_name} ({stock.isin_code})
                             <button onClick={() => handleAddStock(stock.id)} disabled={loading}>
                                 추가
                             </button>
