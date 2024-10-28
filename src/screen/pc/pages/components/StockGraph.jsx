@@ -5,7 +5,7 @@ const StockGraph = ({stockData}) => {
     const series = [
         {
             data: stockData.map(price => ({
-                x: new Date(price.basDt),
+                x: new Date(price.bas_dt),
                 y: [price.mkp, price.hipr, price.lopr, price.clpr],
             })),
         },

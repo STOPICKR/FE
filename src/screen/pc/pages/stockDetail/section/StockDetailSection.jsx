@@ -204,8 +204,8 @@ const StockDetailSection = ({ stock }) => {
         return <div>주식 데이터를 불러오는 중입니다...</div>;
     }
 
-    const { itmsNm, isinCd, stockData } = stock;
-    const latestData = stockData[0]; // 최신 데이터만 사용 (여기서 가장 최근 데이터를 사용하도록 변경)
+    const { itms_name, isin_code, daily_stock_data } = stock;
+    const latestData = daily_stock_data[0]; // 최신 데이터만 사용 (여기서 가장 최근 데이터를 사용하도록 변경)
 
     return (
         <>
@@ -217,13 +217,13 @@ const StockDetailSection = ({ stock }) => {
                             <StockDetailLeft>
                                 <StockTitleBox>
                                     <StockTitleInnerBox>
-                                        <StockTitle>{wrapTextWithLang(itmsNm)}</StockTitle>
-                                        <StockCode>{wrapTextWithLang(isinCd)}</StockCode>
+                                        <StockTitle>{wrapTextWithLang(itms_name)}</StockTitle>
+                                        <StockCode>{wrapTextWithLang(isin_code)}</StockCode>
                                     </StockTitleInnerBox>
                                     {/*<BlueButton buttonText={"포트폴리오 추가하기"} />*/}
                                 </StockTitleBox>
                                 <StockGraphWrapper>
-                                    <StockGraph stockData={stockData}/>
+                                    <StockGraph stockData={daily_stock_data}/>
                                 </StockGraphWrapper>
                             </StockDetailLeft>
                             <StockDetailRight>
@@ -231,7 +231,7 @@ const StockDetailSection = ({ stock }) => {
                                     <StockDetailTitle>주식 정보</StockDetailTitle>
                                     <StockDetailList>
                                         <StockValueText>기준일</StockValueText>
-                                        <StockValueText>{latestData.basDt}</StockValueText>
+                                        <StockValueText>{latestData.ba_dt}</StockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>시가</StockValueText>
@@ -255,7 +255,7 @@ const StockDetailSection = ({ stock }) => {
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>변동 %</StockValueText>
-                                        <StockValueText>{latestData.fltRt}%</StockValueText>
+                                        <StockValueText>{latestData.flt_rt}%</StockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>거래량</StockValueText>
@@ -275,13 +275,13 @@ const StockDetailSection = ({ stock }) => {
                             <StockDetailLeft>
                                 <StockTitleBox>
                                     <StockTitleInnerBox>
-                                        <MobileStockTitle>{wrapTextWithLang(itmsNm)}</MobileStockTitle>
-                                        <MobileStockCode>{wrapTextWithLang(isinCd)}</MobileStockCode>
+                                        <MobileStockTitle>{wrapTextWithLang(itms_name)}</MobileStockTitle>
+                                        <MobileStockCode>{wrapTextWithLang(isin_code)}</MobileStockCode>
                                     </StockTitleInnerBox>
                                     {/*<BlueButton buttonText={"포트폴리오 추가하기"} />*/}
                                 </StockTitleBox>
                                 <MobileStockGraphWrapper>
-                                    <StockGraph stockData={stockData}/>
+                                    <StockGraph stockData={daily_stock_data}/>
                                 </MobileStockGraphWrapper>
                             </StockDetailLeft>
                             <StockDetailRight>
@@ -289,7 +289,7 @@ const StockDetailSection = ({ stock }) => {
                                     <MobileStockDetailTitle>주식 정보</MobileStockDetailTitle>
                                     <StockDetailList>
                                         <MobileStockValueText>기준일</MobileStockValueText>
-                                        <MobileStockValueText>{latestData.basDt}</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.bas_dt}</MobileStockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>시가</MobileStockValueText>
@@ -313,7 +313,7 @@ const StockDetailSection = ({ stock }) => {
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>변동 %</MobileStockValueText>
-                                        <MobileStockValueText>{latestData.fltRt}%</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.flt_rt}%</MobileStockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>거래량</MobileStockValueText>

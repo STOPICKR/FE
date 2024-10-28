@@ -86,6 +86,7 @@ const StockListSection = () => {
         executeGetWeeklyStocksForList() // 필요에 따라 날짜를 수정하세요.
             .then(response => {
                 setStocks(response.data); // 모든 데이터를 설정
+                console.log(response.data)
             })
             .catch(error => {
                 console.error('Error fetching weekly stocks:', error);
@@ -111,9 +112,9 @@ const StockListSection = () => {
                                     <StockBox
                                         key={index}
                                         stockNumber={index + 1}
-                                        stockTitle={stock.itmsNm}
-                                        stockCode={stock.isinCd}
-                                        stockData={stock.stockData}
+                                        stockTitle={stock.itms_name}
+                                        stockCode={stock.isin_code}
+                                        stockData={stock.daily_stock_data}
                                         onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
                                     />
                                 </StockBoxStyled>))}

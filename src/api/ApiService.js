@@ -14,7 +14,7 @@ export const executeGetLatestIndexData = () =>
 
 
 export const executeGetWeeklyStocksForList = () =>
-    apiClient.get(`/api/v1/stock/weekly/latest`);
+    apiClient.get(`/stocks/weekly/latest`);
 
 // analyze
 export const fetchTestResultByStockId = (stockId) =>

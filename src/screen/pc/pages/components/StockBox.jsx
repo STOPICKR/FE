@@ -60,10 +60,10 @@ const StockBox = ({ stockNumber, stockTitle, stockCode, stockData, onClick }) =>
     useEffect(() => {
         if (stockData && stockData.length > 0) {
             // 최신 날짜 기준으로 데이터 정렬 (가장 최근이 첫 번째로 오도록)
-            const sortedData = [...stockData].sort((a, b) => new Date(b.basDt) - new Date(a.basDt));
+            const sortedData = [...stockData].sort((a, b) => new Date(b.bas_dt) - new Date(a.bas_dt));
             const latestData = sortedData[0]; // 가장 최근 날짜의 데이터를 가져옴
             setLatestPrice(latestData.clpr);
-            setLatestDate(latestData.basDt);
+            setLatestDate(latestData.bas_dt);
         }
     }, [stockData]);
 
