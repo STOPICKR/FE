@@ -86,7 +86,6 @@ const StockListSection = () => {
         executeGetWeeklyStocksForList() // 필요에 따라 날짜를 수정하세요.
             .then(response => {
                 setStocks(response.data); // 모든 데이터를 설정
-                console.log(response.data)
             })
             .catch(error => {
                 console.error('Error fetching weekly stocks:', error);
@@ -94,7 +93,7 @@ const StockListSection = () => {
     }, []);
 
     const handleStockClick = (stock) => {
-        navigate(`/stock-detail/${stock.isinCd}`, {state: {stock}}); // 주식 데이터와 함께 이동
+        navigate(`/stock-detail/${stock.isin_code}`, {state: {stock}}); // 주식 데이터와 함께 이동
     };
 
     return (<>
@@ -135,9 +134,9 @@ const StockListSection = () => {
                             {stocks.slice(0, 10).map((stock, index) => (<MobileStockBox
                                     key={index}
                                     stockNumber={index + 1}
-                                    stockTitle={stock.itmsNm}
-                                    stockCode={stock.isinCd}
-                                    stockData={stock.stockData}
+                                    stockTitle={stock.itms_name}
+                                    stockCode={stock.isin_code}
+                                    stockData={stock.daily_stock_data}
                                     onClick={() => handleStockClick(stock)} // 클릭 이벤트 추가
                                 />))}
                         </MobileStockDetailBoxRow>
