@@ -11,35 +11,35 @@ const StockDetailPage = () => {
     const {state} = useLocation();
     const stock = state?.stock;
 
-    // const [testResult, setTestResult] = useState(null);
-    // const [predictionResult, setPredictionResult] = useState(null);
-    //
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const testResultResponse = await fetchTestResultByStockId(stock.isin_code);
-    //             setTestResult(testResultResponse.data);
-    //
-    //             const predictionResultResponse = await fetchPredictionResultByStockId(stock.isin_code);
-    //             setPredictionResult(predictionResultResponse.data);
-    //         } catch (error) {
-    //             console.error("Error fetching data:", error);
-    //         }
-    //     };
-    //
-    //     fetchData();
-    // }, [stock.isin_code]);
+    const [testResult, setTestResult] = useState(null);
+    const [predictionResult, setPredictionResult] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const testResultResponse = await fetchTestResultByStockId(stock.isin_code);
+                setTestResult(testResultResponse.data);
+
+                const predictionResultResponse = await fetchPredictionResultByStockId(stock.isin_code);
+                setPredictionResult(predictionResultResponse.data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [stock.isin_code]);
 
     return (<div>
             <Header/>
             <StockDetailSection stock={stock}/>
-            {/*<StockDetailAnalyzeSection*/}
-            {/*    testResult={testResult}*/}
-            {/*    predictionResult={predictionResult}*/}
-            {/*/>*/}
-            {/*<StockDetailAnalyzeOperationSection*/}
-            {/*    testResult={testResult}*/}
-            {/*    predictionResult={predictionResult}/>*/}
+            <StockDetailAnalyzeSection
+                testResult={testResult}
+                predictionResult={predictionResult}
+            />
+            <StockDetailAnalyzeOperationSection
+                testResult={testResult}
+                predictionResult={predictionResult}/>
             <Footer/>
         </div>);
 };

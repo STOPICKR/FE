@@ -282,7 +282,7 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
     }
 
     const initialCapital = 1000000;
-    const endCapital = initialCapital + testResult.averageProfit;
+    const endCapital = initialCapital + testResult.average_profit;
     const testCount = '10회'
     const tradingUnit = '10주';
     const profitRate = ((endCapital - initialCapital) / initialCapital) * 100;
@@ -306,7 +306,7 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                                         </StockReturnsText>
                                     </StockReturnsTextBox>
                                     <StockReturnsPercentTextBox>
-                                        <StockReturnsPercentText profit={testResult.averageProfit}>
+                                        <StockReturnsPercentText profit={testResult.average_profit}>
                                             {wrapTextWithLang(formattedAverageProfit)}
                                         </StockReturnsPercentText>
                                     </StockReturnsPercentTextBox>
@@ -362,7 +362,7 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                                         </StockReturnsText>
                                     </StockReturnsTextBox>
                                     <StockReturnsPercentTextBox>
-                                        <StockReturnsPercentText profit={testResult.averageProfit}>
+                                        <StockReturnsPercentText profit={testResult.average_profit}>
                                             {wrapTextWithLang(formattedAverageProfit)}
                                         </StockReturnsPercentText>
                                     </StockReturnsPercentTextBox>

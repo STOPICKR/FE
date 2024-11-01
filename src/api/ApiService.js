@@ -18,10 +18,10 @@ export const executeGetWeeklyStocksForList = () =>
 
 // analyze
 export const fetchTestResultByStockId = (stockId) =>
-    apiClient.get(`/api/v1/stock-analyze/test-result/${stockId}`);
+    apiClient.get(`/stocks/weekly/latest/test/${stockId}`);
 
 export const fetchPredictionResultByStockId = (stockId) =>
-    apiClient.get(`/api/v1/stock-analyze/prediction-result/${stockId}`);
+    apiClient.get(`/stocks/weekly/latest/predict/${stockId}`);
 
 //admin용
 // 주식 query로 검색
