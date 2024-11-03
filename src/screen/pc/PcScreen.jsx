@@ -4,6 +4,7 @@ import StockListPage from "./pages/stockList/StockListPage";
 import StockDetailPage from "./pages/stockDetail/StockDetailPage";
 import * as ReactGA from "react-ga";
 import { createBrowserHistory } from "history";
+import NotFound from "../NotFound";
 
 const gaTrackingId = process.env.REACT_APP_GA_TRACKING_ID;
 ReactGA.initialize(gaTrackingId);
@@ -22,6 +23,7 @@ const PcScreen = () => {
                 <Route path='/' element={<MainPage/>}/>
                 <Route path='/stock-list' element={<StockListPage/>}/>
                 <Route path='/stock-detail/:stockId' element={<StockDetailPage/>}/>
+                <Route path="/*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>);
 };
