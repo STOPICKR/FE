@@ -231,27 +231,27 @@ const StockDetailSection = ({ stock }) => {
                                     <StockDetailTitle>주식 정보</StockDetailTitle>
                                     <StockDetailList>
                                         <StockValueText>기준일</StockValueText>
-                                        <StockValueText>{latestData.ba_dt}</StockValueText>
+                                        <StockValueText>{latestData.bas_dt}</StockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>시가</StockValueText>
-                                        <StockValueText>{latestData.mkp}</StockValueText>
+                                        <StockValueText>{latestData.mkp.toLocaleString()}</StockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>종가</StockValueText>
-                                        <StockValueText>{latestData.clpr}</StockValueText>
+                                        <StockValueText>{latestData.clpr.toLocaleString()}</StockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>고가</StockValueText>
-                                        <StockValueText>{latestData.hipr}</StockValueText>
+                                        <StockValueText>{latestData.hipr.toLocaleString()}</StockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>저가</StockValueText>
-                                        <StockValueText>{latestData.lopr}</StockValueText>
+                                        <StockValueText>{latestData.lopr.toLocaleString()}</StockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>변동</StockValueText>
-                                        <StockValueText>{latestData.clpr - latestData.mkp}</StockValueText>
+                                        <StockValueText>{(latestData.clpr - latestData.mkp).toLocaleString()}</StockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>변동 %</StockValueText>
@@ -259,7 +259,7 @@ const StockDetailSection = ({ stock }) => {
                                     </StockDetailList>
                                     <StockDetailList>
                                         <StockValueText>거래량</StockValueText>
-                                        <StockValueText>{latestData.trqu}</StockValueText>
+                                        <StockValueText>{latestData.trqu.toLocaleString()}</StockValueText>
                                     </StockDetailList>
                                 </StockDetailSummary>
                             </StockDetailRight>
@@ -293,23 +293,23 @@ const StockDetailSection = ({ stock }) => {
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>시가</MobileStockValueText>
-                                        <MobileStockValueText>{latestData.mkp}</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.mkp.toLocaleString()}</MobileStockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>종가</MobileStockValueText>
-                                        <MobileStockValueText>{latestData.clpr}</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.clpr.toLocaleString()}</MobileStockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>고가</MobileStockValueText>
-                                        <MobileStockValueText>{latestData.hipr}</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.hipr.toLocaleString()}</MobileStockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>저가</MobileStockValueText>
-                                        <MobileStockValueText>{latestData.lopr}</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.lopr.toLocaleString()}</MobileStockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>변동</MobileStockValueText>
-                                        <MobileStockValueText>{latestData.clpr - latestData.mkp}</MobileStockValueText>
+                                        <MobileStockValueText>{(latestData.clpr - latestData.mkp).toLocaleString()}</MobileStockValueText>
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>변동 %</MobileStockValueText>
@@ -317,7 +317,7 @@ const StockDetailSection = ({ stock }) => {
                                     </StockDetailList>
                                     <StockDetailList>
                                         <MobileStockValueText>거래량</MobileStockValueText>
-                                        <MobileStockValueText>{latestData.trqu}</MobileStockValueText>
+                                        <MobileStockValueText>{latestData.trqu.toLocaleString()}</MobileStockValueText>
                                     </StockDetailList>
                                 </MobileStockDetailSummary>
                             </StockDetailRight>

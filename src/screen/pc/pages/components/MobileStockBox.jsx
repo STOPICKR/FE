@@ -78,7 +78,7 @@ const MobileStockBox = ({stockNumber, stockTitle, stockCode, stockData, onClick}
             </StockGraphWrapper>
             <StockDetailBox>
                 <StockTag>현재가</StockTag>
-                <StockValue>{latestPrice !== null ? latestPrice : 'N/A'}</StockValue>
+                <StockValue>{latestPrice !== null ? latestPrice.toLocaleString() : 'N/A'}</StockValue>
             </StockDetailBox>
             <StockDetailBox>
                 <StockTag>기준일</StockTag>

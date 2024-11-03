@@ -246,7 +246,7 @@ const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
         query: "(max-width:720px)"
     });
 
-    if (!testResult || !predictionResult) {
+    if (!predictionResult) {
         return <p>Loading...</p>; // 데이터를 불러오는 동안 표시할 내용
     }
 

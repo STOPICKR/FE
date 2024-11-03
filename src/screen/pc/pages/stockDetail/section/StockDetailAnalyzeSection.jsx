@@ -277,11 +277,11 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
         query: "(max-width:720px)"
     });
 
-    if (!testResult || !predictionResult) {
+    if (!testResult) {
         return <p>Loading...</p>; // 데이터를 불러오는 동안 표시할 내용
     }
 
-    const initialCapital = 1000000;
+    const initialCapital = parseInt(testResult.test_starting_cash, 10)
     const endCapital = initialCapital + testResult.average_profit;
     const testCount = '10회'
     const tradingUnit = '10주';
@@ -319,11 +319,11 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                                         </StockAnalyzeValueTextBox>
                                         <StockAnalyzeValueTextBox>
                                             <StockAnalyzeValueText>테스트 시작일</StockAnalyzeValueText>
-                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(testResult.startDate || "N/A")}</StockAnalyzeValueTextRight>
+                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(testResult.test_start_date || "N/A")}</StockAnalyzeValueTextRight>
                                         </StockAnalyzeValueTextBox>
                                         <StockAnalyzeValueTextBox>
                                             <StockAnalyzeValueText>테스트 종료일</StockAnalyzeValueText>
-                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(testResult.endDate || "N/A")}</StockAnalyzeValueTextRight>
+                                            <StockAnalyzeValueTextRight>{wrapTextWithLang(testResult.test_end_date || "N/A")}</StockAnalyzeValueTextRight>
                                         </StockAnalyzeValueTextBox>
                                     </StockAnalyzeValueColumn>
                                     <StockAnalyzeValueColumn>
@@ -375,11 +375,11 @@ const StockDetailAnalyzeSection = ({testResult, predictionResult}) => {
                                         </MobileStockAnalyzeValueTextBox>
                                         <MobileStockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>테스트 시작일</MobileStockAnalyzeValueText>
-                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testResult.startDate || "N/A")}</MobileStockAnalyzeValueTextRight>
+                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testResult.test_start_date || "N/A")}</MobileStockAnalyzeValueTextRight>
                                         </MobileStockAnalyzeValueTextBox>
                                         <MobileStockAnalyzeValueTextBox>
                                             <MobileStockAnalyzeValueText>테스트 종료일</MobileStockAnalyzeValueText>
-                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testResult.endDate || "N/A")}</MobileStockAnalyzeValueTextRight>
+                                            <MobileStockAnalyzeValueTextRight>{wrapTextWithLang(testResult.test_end_date || "N/A")}</MobileStockAnalyzeValueTextRight>
                                         </MobileStockAnalyzeValueTextBox>
                                     </MobileStockAnalyzeValueColumn>
                                     <MobileStockAnalyzeValueColumn>
