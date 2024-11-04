@@ -2,19 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import BlueButton from "./BlueButton";
 
-const wrapTextWithLang = (text) => {
-    return text.split('\n').map((line, index) => (
-        <React.Fragment key={index}>
-            {line.split('').map((char, index) => {
-                const isKorean = /[가-힣]/.test(char);
-                const lang = isKorean ? 'ko' : 'en';
-                return <span key={index} lang={lang}>{char}</span>;
-            })}
-            <br />
-        </React.Fragment>
-    ));
-};
-
 const IntroductionBoxWrapper = styled.div`
     display: flex;
     flex: 1;
@@ -35,39 +22,21 @@ const IntroductionTitleContainer = styled.div`
 const IntroductionBoxSubTitle = styled.p`
     font-size: 1rem;
     white-space: pre-line;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
+    font-family: pretendard;
 `;
 
 const IntroductionBoxTitle = styled.p`
     font-size: 1.8em;
-    font-weight: bold;
     white-space: pre-line;
     line-height: 1.2;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
+    font-family: pretendard-bold;
 `;
 
 const IntroductionBoxContent = styled.p`
     font-size: 1.1em;
     white-space: pre-line;
     line-height: 1.5;
-
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
+    font-family: pretendard;
 `;
 
 const BottomContainer = styled.div`
@@ -82,24 +51,19 @@ const IntroductionBoxDetail = styled.p`
     font-size: 1em;
     white-space: pre-line;
     opacity: 0.5;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
+    font-family: pretendard;
 `;
 
 const IntroductionBox = ({subTitle, title, content, detail, buttonText, onClick}) => {
     return(
         <IntroductionBoxWrapper>
             <IntroductionTitleContainer>
-                <IntroductionBoxSubTitle>{wrapTextWithLang(subTitle)}</IntroductionBoxSubTitle>
-                <IntroductionBoxTitle>{wrapTextWithLang(title)}</IntroductionBoxTitle>
-                <IntroductionBoxContent>{wrapTextWithLang(content)}</IntroductionBoxContent>
+                <IntroductionBoxSubTitle>{subTitle}</IntroductionBoxSubTitle>
+                <IntroductionBoxTitle>{title}</IntroductionBoxTitle>
+                <IntroductionBoxContent>{content}</IntroductionBoxContent>
             </IntroductionTitleContainer>
             <BottomContainer>
-                {detail && <IntroductionBoxDetail>{wrapTextWithLang(detail)}</IntroductionBoxDetail>}
+                {detail && <IntroductionBoxDetail>{detail}</IntroductionBoxDetail>}
                 {buttonText && <BlueButton buttonText={buttonText} onClick={onClick}/>}
             </BottomContainer>
         </IntroductionBoxWrapper>

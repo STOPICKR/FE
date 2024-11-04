@@ -1,35 +1,14 @@
 import styled from "styled-components";
 import React from "react";
 
-const wrapTextWithLang = (text) => {
-    return text.split('\n').map((line, index) => (
-        <React.Fragment key={index}>
-            {line.split('').map((char, index) => {
-                const isKorean = /[가-힣]/.test(char);
-                const lang = isKorean ? 'ko' : 'en';
-                return <span key={index} lang={lang}>{char}</span>;
-            })}
-            <br/>
-        </React.Fragment>
-    ));
-};
-
 const ButtonWrapper = styled.div`
     font-size: 1rem;
-    font-weight: bold;
     text-align: center;
     white-space: pre-line;
     color: white;
     width: auto;
     height: auto;
-
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
+    font-family: pretendard-bold;
 
     cursor: pointer;
     border-radius: 30px;
@@ -39,7 +18,7 @@ const ButtonWrapper = styled.div`
 
 const BlueButton = ({buttonText, onClick}) => {
     return (
-        <ButtonWrapper onClick={onClick}>{wrapTextWithLang(buttonText)}</ButtonWrapper>
+        <ButtonWrapper onClick={onClick}>{buttonText}</ButtonWrapper>
     );
 };
 

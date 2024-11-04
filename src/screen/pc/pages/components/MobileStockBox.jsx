@@ -45,8 +45,7 @@ const StockDetailBox = styled.div`
 
 const StockTag = styled.p`
     font-size: 0.8em;
-    font-family: pretendard;
-    font-weight: bold;
+    font-family: pretendard-bold;
 `;
 
 const StockValue = styled.p`
