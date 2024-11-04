@@ -24,20 +24,20 @@ const MobileIcon = styled.img`
 
 const Text = styled.p`
     font-size: 2em;
-    font-weight: bold;
+    font-family: pretendard-bold;
 `
 
 const MobileText = styled.p`
     font-size: 1.2em;
-    font-weight: bold;
+    font-family: pretendard-bold;
 `
 
 const Link = styled.a`
     cursor: pointer;
-    font-weight: bold;
     font-size: 1.5em;
     text-decoration: underline;
     color: #264653;
+    font-family: pretendard-bold;
 
     &:hover {
         color: blue;
@@ -46,10 +46,10 @@ const Link = styled.a`
 
 const MobileLink = styled.a`
     cursor: pointer;
-    font-weight: bold;
     font-size: 1em;
     text-decoration: underline;
     color: blue;
+    font-family: pretendard-bold;
 `;
 
 const NotFound = () => {
