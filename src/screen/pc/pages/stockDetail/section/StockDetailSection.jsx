@@ -5,19 +5,6 @@ import StockGraph from "../../components/StockGraph";
 import {useMediaQuery} from "react-responsive";
 import MobileContainerTitle from "../../components/MobileContainerTitle";
 
-const wrapTextWithLang = (text) => {
-    return text.split('\n').map((line, index) => (
-        <React.Fragment key={index}>
-            {line.split('').map((char, index) => {
-                const isKorean = /[가-힣]/.test(char);
-                const lang = isKorean ? 'ko' : 'en';
-                return <span key={index} lang={lang}>{char}</span>;
-            })}
-            <br />
-        </React.Fragment>
-    ));
-};
-
 const StockDetailSectionWrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -75,51 +62,27 @@ const StockTitleInnerBox = styled.div`
     justify-content: start;
     align-items: baseline;
     gap: 1em;
+    padding-left: 1em;
 `;
 
 const StockTitle = styled.p`
     font-size: 1.8em;
-    font-weight: bold;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
+    font-family: pretendard-bold;
 `;
 
 const MobileStockTitle = styled.p`
     font-size: 1.2em;
-    font-weight: bold;
-    padding-left: 0.5em;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
+    font-family: pretendard-bold;
 `;
 
 const StockCode = styled.p`
     font-size: 1.1em;
-
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
+    font-family: pretendard;
 `;
 
 const MobileStockCode = styled.p`
     font-size: 0.8em;
-    [lang="en"] {
-        font-family: 'Inter', sans-serif;
-    }
-    [lang="ko"] {
-        font-family: 'pretendard', sans-serif;
-    }
+    font-family: pretendard;
 `;
 
 const StockGraphWrapper = styled.div`
@@ -158,8 +121,7 @@ const StockDetailTitle = styled.p`
     width: 100%;
     text-align: center;
     font-size: 1.6em;
-    font-weight: bold;
-    font-family: pretendard,serif;
+    font-family: pretendard-bold;
     color: white;
 `;
 
@@ -167,8 +129,7 @@ const MobileStockDetailTitle = styled.p`
     width: 100%;
     text-align: center;
     font-size: 1.2em;
-    font-weight: bold;
-    font-family: pretendard,serif;
+    font-family: pretendard-bold;
     color: white;
 `;
 
@@ -181,13 +142,13 @@ const StockDetailList = styled.div`
 
 const StockValueText = styled.p`
     font-size: 1.1em;
-    font-family: pretendard,serif;
+    font-family: pretendard;
     color: white;
 `;
 
 const MobileStockValueText = styled.p`
     font-size: 1em;
-    font-family: pretendard,serif;
+    font-family: pretendard;
     color: white;
 `;
 
@@ -217,8 +178,8 @@ const StockDetailSection = ({ stock }) => {
                             <StockDetailLeft>
                                 <StockTitleBox>
                                     <StockTitleInnerBox>
-                                        <StockTitle>{wrapTextWithLang(itms_name)}</StockTitle>
-                                        <StockCode>{wrapTextWithLang(isin_code)}</StockCode>
+                                        <StockTitle>{itms_name}</StockTitle>
+                                        <StockCode>{isin_code}</StockCode>
                                     </StockTitleInnerBox>
                                     {/*<BlueButton buttonText={"포트폴리오 추가하기"} />*/}
                                 </StockTitleBox>
@@ -275,8 +236,8 @@ const StockDetailSection = ({ stock }) => {
                             <StockDetailLeft>
                                 <StockTitleBox>
                                     <StockTitleInnerBox>
-                                        <MobileStockTitle>{wrapTextWithLang(itms_name)}</MobileStockTitle>
-                                        <MobileStockCode>{wrapTextWithLang(isin_code)}</MobileStockCode>
+                                        <MobileStockTitle>{itms_name}</MobileStockTitle>
+                                        <MobileStockCode>{isin_code}</MobileStockCode>
                                     </StockTitleInnerBox>
                                     {/*<BlueButton buttonText={"포트폴리오 추가하기"} />*/}
                                 </StockTitleBox>
