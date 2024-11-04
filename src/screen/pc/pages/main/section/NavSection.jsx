@@ -62,23 +62,11 @@ const MobileNavContent = styled.p`
     font-family: pretendard;
 `;
 
-const LogoImage = styled.img`
-    width: 20rem;
-    bottom: 2.5rem;
-    right: 2.5rem;
-`;
-
-const MobileLogoImage = styled.img`
-    width: 7rem;
-    bottom: 2.5em;
-    right: 2.5em;
-`;
-
 const Button = styled.button`
     padding: 12px 0;
     margin-top: 2em;
     font-size: 16px;
-    width: 30%;
+    width: 40%;
     background-color: #264653;
     color: white;
     border: none;
@@ -91,7 +79,8 @@ const MobileButton = styled.button`
     padding: 0.6em 0;
     margin-top: 1em;
     font-size: 0.8em;
-    width: 30%;
+    font-size: 0.8em;
+    width:40%;
     background-color: #264653;
     color: white;
     border: none;

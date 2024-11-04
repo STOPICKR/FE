@@ -22,8 +22,7 @@ const StockNumber = styled.p`
 
 const StockTitle = styled.p`
     font-size: 1.3rem;
-    font-weight: bold;
-    font-family: pretendard;
+    font-family: pretendard-bold;
 `;
 
 const StockCode = styled.p`

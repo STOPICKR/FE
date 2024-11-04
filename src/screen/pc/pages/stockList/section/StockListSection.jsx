@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom"; // useNavigate 사용
+import {useNavigate} from "react-router-dom";
 import ContainerTitle from "../../components/ContainerTitle";
 import styled from "styled-components";
 import IntroductionBox from "../../components/IntroductionBox";

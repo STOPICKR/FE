@@ -2,8 +2,6 @@ import { useMediaQuery } from "react-responsive"
 import AuthProvider from "./context/security/AuthContext";
 import DateProvider from "./context/date/DateContext";
 import PcScreen from "./screen/pc/PcScreen";
-import TabletScreen from "./screen/tablet/TabletScreen";
-import MobileScreen from "./screen/mobile/MobileScreen";
 
 function App() {
 
