@@ -68,11 +68,12 @@ table {
 }
 
 @font-face {
-  font-family: "ibm";
-  src: url(./fonts/IBM_Plex_Sans_KR/IBMPlexSansKR-Regular.ttf);
+  font-family: "pretendard-bold";
+  src: url(./fonts/Pretendard-1.3.9/public/static/Pretendard-Bold.otf);
 }
 
 :root {
   --font-inter: "inter";
   --font-pretendard: "pretendard";
+  --font-pretendard-bold: "pretendard-bold";
 }

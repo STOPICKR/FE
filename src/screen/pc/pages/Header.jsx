@@ -37,16 +37,14 @@ const NavBox = styled.div`
 `;
 
 const Nav = styled.div`
-    font-family: pretendard;
+    font-family: pretendard-bold;
     font-size: 1.2em;
-    font-weight: bold;
     cursor: pointer;
 `;
 
 const MobileNav = styled.div`
-    font-family: pretendard;
+    font-family: pretendard-bold;
     font-size: 0.9em;
-    font-weight: bold;
     cursor: pointer;
 `;
 

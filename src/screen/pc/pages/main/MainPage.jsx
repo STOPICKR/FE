@@ -9,7 +9,6 @@ const MainPage = () => {
             <Header/>
             <NavSection/>
             <StockListIntroductionSection/>
-
             <Footer/>
         </div>);
 };

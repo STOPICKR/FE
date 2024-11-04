@@ -33,19 +33,17 @@ const MobileNavSectionContainer = styled.div`
 const NavTitle = styled.p`
     font-size: 3.5rem;
     white-space: pre-line;
-    font-weight: bold;
     line-height: 1.2;
     text-align: center;
-    font-family: 'pretendard', sans-serif;
+    font-family: pretendard-bold;
 `;
 
 const MobileNavTitle = styled.p`
     font-size: 1.5em;
     white-space: pre-line;
-    font-weight: bold;
     line-height: 1.2;
     text-align: center;
-    font-family: 'pretendard', sans-serif;
+    font-family: pretendard-bold;
 `;
 
 const NavContent = styled.p`
@@ -53,7 +51,7 @@ const NavContent = styled.p`
     white-space: pre-line;
     line-height: 1.2;
     text-align: center;
-    font-family: 'pretendard', sans-serif;
+    font-family: pretendard;
 `;
 
 const MobileNavContent = styled.p`
@@ -61,7 +59,7 @@ const MobileNavContent = styled.p`
     white-space: pre-line;
     line-height: 1.4;
     text-align: center;
-    font-family: 'pretendard', sans-serif;
+    font-family: pretendard;
 `;
 
 const LogoImage = styled.img`
@@ -86,7 +84,7 @@ const Button = styled.button`
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
+    font-family: pretendard-bold;
 `;
 
 const MobileButton = styled.button`
@@ -99,8 +97,7 @@ const MobileButton = styled.button`
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
-    font-family: 'pretendard', sans-serif;
+    font-family: pretendard-bold;
 `;
 
 const NavSection = () => {
