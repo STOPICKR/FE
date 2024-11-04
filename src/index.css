@@ -67,6 +67,11 @@ table {
   src: url(./fonts/Pretendard-1.3.9/public/variable/PretendardVariable.ttf);
 }
 
+@font-face {
+  font-family: "ibm";
+  src: url(./fonts/IBM_Plex_Sans_KR/IBMPlexSansKR-Regular.ttf);
+}
+
 :root {
   --font-inter: "inter";
   --font-pretendard: "pretendard";
