@@ -91,6 +91,7 @@ const StockReturnsPercentBox = styled.div`
 
 const MobileStockReturnsPercentBox = styled.div`
     display: flex;
+    flex: 1.5;
     flex-direction: column;
     width: 70%;
     justify-content: center;
@@ -111,7 +112,7 @@ const StockReturnsText = styled.p`
     display: flex;
     flex: 1;
     justify-content: center;
-    font-size: 1.1em;
+    font-size: 1em;
     font-family: pretendard-bold;
     white-space: pre-line;
     color: white;
@@ -130,7 +131,7 @@ const StockReturnsPercentTextBox = styled.div`
 `
 
 const StockReturnsPercentText = styled.p`
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: ${({profit}) => (profit >= 0 ? 'red' : 'blue')};
     white-space: pre-line;
     font-family: pretendard-bold;
@@ -187,7 +188,7 @@ const MobileStockAnalyzeValueTextBox = styled.div`
 `
 
 const StockAnalyzeValueText = styled.p`
-    font-size: 1.1em;
+    font-size: 1em;
     font-family: pretendard-bold;
     color: #5F6466;
 `

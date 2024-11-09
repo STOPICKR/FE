@@ -68,8 +68,18 @@ const StockReturnsPercentBox = styled.div`
     align-items: center;
 `;
 
+const MobileStockReturnsPercentBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 1.5;
+    justify-content: center;
+    align-items: center;
+`;
+
 const StockReturnsTextBox = styled.div`
     display: flex;
+    flex-direction: column;
+    gap: 0.45em;
     flex: 1;
     background-color: #264653;
     padding: 1.2em 0;
@@ -92,7 +102,7 @@ const StockReturnsText = styled.p`
     display: flex;
     flex: 1;
     justify-content: center;
-    font-size: 1.1em;
+    font-size: 1em;
     font-family: pretendard-bold;
     white-space: pre-line;
     color: white;
@@ -111,7 +121,7 @@ const StockReturnsPercentTextBox = styled.div`
 `
 
 const StockPredictActionText = styled.p`
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-family: pretendard-bold;
     color: black;
     white-space: pre-line;
@@ -179,14 +189,14 @@ const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
                     <StockDetailAnalyzeSectionContainer>
                         <StockDetailAnalyzeSectionInnerContainer>
                             <StockTitleInnerBox>
-                                <StockTitle>{"테스트 결과 기반 매도/매수 전력"}</StockTitle>
+                                <StockTitle>{"테스트 결과 기반 매도/매수 전략"}</StockTitle>
                                 {/*<StockSubTitle>{wrapTextWithLang("매도/매수 전략")}</StockSubTitle>*/}
                             </StockTitleInnerBox>
                             <StockTestAnalyzeBox>
                                 <StockReturnsPercentBox>
                                     <StockReturnsTextBox>
                                         <StockReturnsText>
-                                            AI 추천
+                                            {predictionResult.target_date} 추천
                                         </StockReturnsText>
                                     </StockReturnsTextBox>
                                     <StockReturnsPercentTextBox>
@@ -213,10 +223,10 @@ const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
                                 <MobileStockTitle>{"테스트 결과 기반 매도/매수 전략"}</MobileStockTitle>
                             </StockTitleInnerBox>
                             <StockTestAnalyzeBox>
-                                <StockReturnsPercentBox>
+                                <MobileStockReturnsPercentBox>
                                     <MobileStockReturnsTextBox>
                                         <StockReturnsText>
-                                            AI 추천
+                                            {predictionResult.target_date} 추천
                                         </StockReturnsText>
                                     </MobileStockReturnsTextBox>
                                     <StockReturnsPercentTextBox>
@@ -224,7 +234,7 @@ const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
                                             {predictionResult.action}
                                         </StockPredictActionText>
                                     </StockReturnsPercentTextBox>
-                                </StockReturnsPercentBox>
+                                </MobileStockReturnsPercentBox>
                                 <MobileStockAnalyzeOperationDetailBox>
                                     <OperationExplainSubTitle>{"서비스 운영 방식"}</OperationExplainSubTitle>
                                     <MobileOperationExplainContent>{"매수/매도 전략"}</MobileOperationExplainContent>
