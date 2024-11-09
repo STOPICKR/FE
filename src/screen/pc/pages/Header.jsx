@@ -73,6 +73,14 @@ const Header = () => {
         navigate('/');
     }
 
+    function stockListOnClickHandler() {
+        navigate('/stock-list');
+    }
+
+    function portfolioOnClickHandler() {
+        alert("서비스 준비중입니다.")
+    }
+
     return (
         <>
             {
@@ -82,8 +90,8 @@ const Header = () => {
                         <HeaderContainer>
                             <LogoImage src={logo} alt={"image"} onClick={titleOnClickHandler}/>
                             <NavBox>
-                                <Nav>AI 성과 분석</Nav>
-                                <Nav>내 포트폴리오</Nav>
+                                <Nav onClick={stockListOnClickHandler}>AI 성과 분석</Nav>
+                                <Nav onClick={portfolioOnClickHandler}>내 포트폴리오</Nav>
                             </NavBox>
                         </HeaderContainer>
                     </HeaderWrapper>
@@ -96,8 +104,8 @@ const Header = () => {
                         <MobileHeaderContainer>
                             <MobileLogoImage src={logo} alt={"image"} onClick={titleOnClickHandler}/>
                             <NavBox>
-                                <MobileNav>AI 성과 분석</MobileNav>
-                                <MobileNav>내 포트폴리오</MobileNav>
+                                <MobileNav onClick={stockListOnClickHandler}>AI 성과 분석</MobileNav>
+                                <MobileNav onClick={portfolioOnClickHandler}>내 포트폴리오</MobileNav>
                             </NavBox>
                         </MobileHeaderContainer>
                     </HeaderWrapper>

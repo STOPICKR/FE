@@ -16,7 +16,7 @@ const StockDetailSectionContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 70.625em;
-    margin: 2em 1.2em;
+    margin: 2em 1.2em 0.2em 1.2em;
     gap: 1.875rem;
 `;
 

@@ -10,6 +10,7 @@ import {useMediaQuery} from "react-responsive";
 import MobileIntroductionBox from "../../components/MobileIntroductionBox";
 import MobileContainerTitle from "../../components/MobileContainerTitle";
 import MobileStockBox from "../../components/MobileStockBox";
+import KakaoAdFit from "../../../../../KakaoAdfit";
 
 const StockDetailSectionWrapper = styled.div`
     display: flex;
@@ -55,6 +56,13 @@ const StockBoxStyled = styled.div`
         transform: scale(1.05); /* 5% 확대 */
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 확대될 때 그림자 추가 */
     }
+`
+
+const KakaoAdFitWrapper  = styled.div`
+    display: flex;
+    background-color: #264653;
+    justify-content: center;
+    padding: 0.5em;
 `
 
 const formatDate = (dateString) => {
@@ -106,6 +114,9 @@ const StockListSection = () => {
                             title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nSTOPICKR 선정 주식 종목`}
                             content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n" + "2. 선정된 종목의 AI 분석을 확인해보세요\n" + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
                             detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
+                        <KakaoAdFitWrapper>
+                            <KakaoAdFit unit="DAN-q5o3sBajTy2L9S51" width="728" height="90"/>
+                        </KakaoAdFitWrapper>
                         <StockDetailBoxRow>
                             {stocks.slice(0, 10).map((stock, index) => (<StockBoxStyled>
                                     <StockBox
@@ -130,6 +141,9 @@ const StockListSection = () => {
                             title={`${getYear(startDate)}\n${formatDate(startDate)} ~ ${formatDate(endDate)}\nSTOPICKR 선정 주식 종목`}
                             content={"1. 서비스에서 선정된 자산별 현황을 확인해보세요\n" + "2. 선정된 종목의 AI 분석을 확인해보세요\n" + "3. 선정된 종목을 확인하고 개인 포트폴리오에 추가해보세요\n"}
                             detail={"⦁ 종목은 매주 KOSPI 50구성 종목에서 거래량과 변동%를 기준으로 선정됩니다"}/>
+                        <KakaoAdFitWrapper>
+                            <KakaoAdFit unit="DAN-XA23ODbFMaBIwO8b" width="320" height="100"/>
+                        </KakaoAdFitWrapper>
                         <MobileStockDetailBoxRow>
                             {stocks.slice(0, 10).map((stock, index) => (<MobileStockBox
                                     key={index}
