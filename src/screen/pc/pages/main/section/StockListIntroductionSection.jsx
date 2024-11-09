@@ -101,10 +101,10 @@ const StockListIntroductionSection = () => {
         query: "(min-width: 900px)"
     });
     const isMidTablet = useMediaQuery({
-        query: "(min-width: 720px) and (max-width: 900px)"
+        query: "(min-width: 750px) and (max-width: 900px)"
     });
     const isMobile = useMediaQuery({
-        query: "(max-width:720px)"
+        query: "(max-width:750px)"
     });
 
     return (<>

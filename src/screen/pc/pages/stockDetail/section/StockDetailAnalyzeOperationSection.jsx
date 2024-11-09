@@ -172,10 +172,10 @@ const MobileOperationExplainContent = styled.p`
 const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
 
     const isOverTablet = useMediaQuery({
-        query: "(min-width:720px)"
+        query: "(min-width:750px)"
     });
     const isMobile = useMediaQuery({
-        query: "(max-width:720px)"
+        query: "(max-width:750px)"
     });
 
     if (!predictionResult) {
