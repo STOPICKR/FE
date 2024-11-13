@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import selected_image from "../../../../../images/Selected_Image.png"
 import analyzed_image from "../../../../../images/Analyzed_Image.png"
 import predicted_image from "../../../../../images/Predicted_Image.png"
@@ -23,7 +24,7 @@ const MobileNavSectionWrapper = styled.div`
     background-color: #264653;
 `;
 
-const NavSectionContainer = styled.div`
+const NavSectionContainer = styled(motion.div)`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -34,7 +35,7 @@ const NavSectionContainer = styled.div`
 `;
 
 
-const MobileNavSectionContainer = styled.div`
+const MobileNavSectionContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,7 +45,7 @@ const MobileNavSectionContainer = styled.div`
     margin: 6em 0;
 `;
 
-const NavTitle = styled.p`
+const NavTitle = styled(motion.p)`
     font-size: 2.5em;
     white-space: pre-line;
     padding-bottom: 0.5em;
@@ -53,7 +54,7 @@ const NavTitle = styled.p`
     font-family: pretendard-bold;
 `;
 
-const MobileNavTitle = styled.p`
+const MobileNavTitle = styled(motion.p)`
     font-size: 1.1em;
     white-space: pre-line;
     line-height: 1.2;
@@ -110,9 +111,29 @@ const StockListIntroductionSection = () => {
     return (<>
             {isOverTablet && <NavSectionWrapper>
                 <div>
-                    <NavTitle>{"서비스가 제공하는"}</NavTitle>
-                    <NavTitle style={{marginBottom: "1.5em"}}>{"AI 기반 시스템을 소개합니다"}</NavTitle>
-                    <NavSectionContainer>
+                    <NavTitle
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                    >
+                        {"서비스가 제공하는"}
+                    </NavTitle>
+                    <NavTitle
+                        style={{marginBottom: "1.5em"}}
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                    >
+                        {"AI 기반 시스템을 소개합니다"}
+                    </NavTitle>
+                    <NavSectionContainer
+                        initial={{ opacity: 0, x: -200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: true }}
+                    >
                         <LogoImage style={{width: "30em"}} src={selected_image} alt={"image"}/>
                         <div>
                             <NavContent style={{fontSize: "1em"}}>{("Selected")}</NavContent>
@@ -125,7 +146,12 @@ const StockListIntroductionSection = () => {
                                 style={{fontSize: "1.2em"}}>{"선정된 자산들의 주가 데이터를 제공합니다"}</NavContent>
                         </div>
                     </NavSectionContainer>
-                    <NavSectionContainer>
+                    <NavSectionContainer
+                        initial={{ opacity: 0, x: 200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: true }}
+                    >
                         <div>
                             <NavContent style={{fontSize: "1em"}}>{"Analyzed"}</NavContent>
                             <NavContent style={{
@@ -136,7 +162,12 @@ const StockListIntroductionSection = () => {
                         </div>
                         <LogoImage style={{width: "25em"}} src={analyzed_image} alt={"image"}/>
                     </NavSectionContainer>
-                    <NavSectionContainer>
+                    <NavSectionContainer
+                        initial={{ opacity: 0, x: -200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: true }}
+                    >
                         <LogoImage style={{width: "28em"}} src={predicted_image} alt={"image"}/>
                         <div>
                             <NavContent style={{fontSize: "1em"}}>{"Predicted"}</NavContent>
@@ -153,9 +184,29 @@ const StockListIntroductionSection = () => {
             </NavSectionWrapper>}
             {isMidTablet && <NavSectionWrapper>
                 <div>
-                    <NavTitle>{"서비스가 제공하는"}</NavTitle>
-                    <NavTitle style={{marginBottom: "1.5em"}}>{"AI 기반 시스템을 소개합니다"}</NavTitle>
-                    <NavSectionContainer>
+                    <NavTitle
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                    >
+                        {"서비스가 제공하는"}
+                    </NavTitle>
+                    <NavTitle
+                        style={{marginBottom: "1.5em"}}
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                    >
+                        {"AI 기반 시스템을 소개합니다"}
+                    </NavTitle>
+                    <NavSectionContainer
+                        initial={{ opacity: 0, x: -200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: true }}
+                    >
                         <LogoImage style={{width: "21em"}} src={selected_image} alt={"image"}/>
                         <div>
                             <NavContent style={{fontSize: "1em"}}>{"Selected"}</NavContent>
@@ -168,7 +219,12 @@ const StockListIntroductionSection = () => {
                                 style={{fontSize: "1.2em"}}>{"선정된 자산들의 주가 데이터를 제공합니다"}</NavContent>
                         </div>
                     </NavSectionContainer>
-                    <NavSectionContainer>
+                    <NavSectionContainer
+                        initial={{ opacity: 0, x: 200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: true }}
+                    >
                         <div>
                             <NavContent style={{fontSize: "1em"}}>{"Analyzed"}</NavContent>
                             <NavContent style={{
@@ -179,7 +235,12 @@ const StockListIntroductionSection = () => {
                         </div>
                         <LogoImage style={{width: "18em"}} src={analyzed_image} alt={"image"}/>
                     </NavSectionContainer>
-                    <NavSectionContainer>
+                    <NavSectionContainer
+                        initial={{ opacity: 0, x: -200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: true }}
+                    >
                         <LogoImage style={{width: "21em"}} src={predicted_image} alt={"image"}/>
                         <div>
                             <NavContent style={{fontSize: "1em"}}>{"Predicted"}</NavContent>
@@ -196,10 +257,30 @@ const StockListIntroductionSection = () => {
             </NavSectionWrapper>}
             {isMobile && <MobileNavSectionWrapper>
                 <div>
-                    <MobileNavTitle>{"서비스가 제공하는"}</MobileNavTitle>
                     <MobileNavTitle
-                        style={{marginBottom: "2em"}}>{"AI 기반 시스템을 소개합니다"}</MobileNavTitle>
-                    <MobileNavSectionContainer style={{marginTop: "3em"}}>
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                    >
+                        {"서비스가 제공하는"}
+                    </MobileNavTitle>
+                    <MobileNavTitle
+                        style={{marginBottom: "2em"}}
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                    >
+                        {"AI 기반 시스템을 소개합니다"}
+                    </MobileNavTitle>
+                    <MobileNavSectionContainer
+                        style={{marginTop: "3em"}}
+                        initial={{ opacity: 0, x: -200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: true }}
+                    >
                         <MobileLogoImage style={{width: "18em"}} src={selected_image} alt={"image"}/>
                         <div>
                             <MobileNavContent
@@ -213,7 +294,12 @@ const StockListIntroductionSection = () => {
                                 style={{fontSize: "0.8em"}}>{"선정된 자산들의 주가 데이터를 제공합니다"}</MobileNavContent>
                         </div>
                     </MobileNavSectionContainer>
-                    <MobileNavSectionContainer>
+                    <MobileNavSectionContainer
+                        initial={{ opacity: 0, x: 200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: true }}
+                    >
                         <MobileLogoImage src={analyzed_image} alt={"image"}/>
                         <div>
                             <MobileNavContent
@@ -225,7 +311,13 @@ const StockListIntroductionSection = () => {
                                 style={{fontSize: "0.8em"}}>{"선정된 자산별 AI를 이용한 테스트 수익 및 데이터를 제공합니다"}</MobileNavContent>
                         </div>
                     </MobileNavSectionContainer>
-                    <MobileNavSectionContainer style={{marginBottom: "2em"}}>
+                    <MobileNavSectionContainer
+                        style={{marginBottom: "2em"}}
+                        initial={{ opacity: 0, x: -200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 2 }}
+                        viewport={{ once: true }}
+                    >
                         <MobileLogoImage style={{width: "17em"}} src={predicted_image} alt={"image"}/>
                         <div>
                             <MobileNavContent

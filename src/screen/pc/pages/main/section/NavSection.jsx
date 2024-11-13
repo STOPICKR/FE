@@ -12,7 +12,7 @@ const NavSectionWrapper = styled.div`
     align-items: center;
 `;
 
-const NavSectionContainer = styled.div`
+const NavSectionContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +23,7 @@ const NavSectionContainer = styled.div`
     gap: 0.5em;
 `;
 
-const MobileNavSectionContainer = styled.div`
+const MobileNavSectionContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,14 +98,14 @@ const MobileButton = styled.button`
     font-family: pretendard-bold;
 `;
 
-const Arrow = styled.img`
+const Arrow = styled(motion.img)`
     padding-top: 2em;
     width: 70px;
     opacity: 0.6;
 `
 
-const MobileArrow = styled.img`
-    padding-top: 2em;
+const MobileArrow = styled(motion.img)`
+    padding-top: 1em;
     width: 40px;
     opacity: 0.6;
 `
@@ -129,23 +129,55 @@ const NavSection = () => {
         <>
             {isOverTablet &&
                 <NavSectionWrapper>
-                    <NavSectionContainer>
+                    <NavSectionContainer
+                        initial={{ y: -20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.9, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                    >
                             <NavTitle style={{color: "#1454FF"}}>{"어려운 주식 투자"}</NavTitle>
                             <NavTitle style={{paddingBottom: "1rem"}}>{"AI 기술과 함께 알아보세요"}</NavTitle>
                             <NavContent>{"AI 모델 성과 및 수익률 분석\n서비스에서 선정된 자산별 현황을 확인해보세요"}</NavContent>
                         <Button onClick={navigateStockList}>AI 성과 분석 상세 보기</Button>
-                        <Arrow src={double_arrow_down} alt="double_arrow_down" />
+                        <Arrow
+                            src={double_arrow_down}
+                            alt="double_arrow_down"
+                            animate={{
+                                y: [0, 7, 0]
+                            }}
+                            transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        />
                     </NavSectionContainer>
                 </NavSectionWrapper>
             }
             {isMobile &&
                 <NavSectionWrapper>
-                    <MobileNavSectionContainer>
+                    <MobileNavSectionContainer
+                        initial={{ y: -50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                    >
                             <MobileNavTitle style={{color: "#1454FF"}}>{"어려운 주식 투자"}</MobileNavTitle>
                             <MobileNavTitle style={{paddingBottom: "0.6rem"}}>{"AI 기술과 함께 알아보세요"}</MobileNavTitle>
                             <MobileNavContent>{"AI 모델 성과 및 수익률 분석\n서비스에서 선정된 자산별 현황을 확인해보세요"}</MobileNavContent>
                             <MobileButton onClick={navigateStockList}>AI 성과 분석 상세 보기</MobileButton>
-                        <MobileArrow src={double_arrow_down} alt="double_arrow_down" />
+                        <MobileArrow
+                            src={double_arrow_down}
+                            alt="double_arrow_down"
+                            animate={{
+                                y: [0, 5, 0]
+                            }}
+                            transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        />
                     </MobileNavSectionContainer>
                 </NavSectionWrapper>
             }
