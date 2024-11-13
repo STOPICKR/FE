@@ -36,15 +36,24 @@ const NavBox = styled.div`
     gap: 1em;
 `;
 
+const MobileNavBox = styled.div`
+    display: flex;
+    gap: 0.6em;
+`;
+
 const Nav = styled.div`
     font-family: pretendard-bold;
     font-size: 1.2em;
     cursor: pointer;
+    
+    &:hover {
+        color: #1454FF;
+    }
 `;
 
 const MobileNav = styled.div`
     font-family: pretendard-bold;
-    font-size: 0.9em;
+    font-size: 0.75em;
     cursor: pointer;
 `;
 
@@ -91,6 +100,7 @@ const Header = () => {
                             <LogoImage src={logo} alt={"image"} onClick={titleOnClickHandler}/>
                             <NavBox>
                                 <Nav onClick={stockListOnClickHandler}>AI 성과 분석</Nav>
+                                <Nav onClick={stockListOnClickHandler}>AI 소개</Nav>
                                 <Nav onClick={portfolioOnClickHandler}>내 포트폴리오</Nav>
                             </NavBox>
                         </HeaderContainer>
@@ -103,10 +113,11 @@ const Header = () => {
                     <HeaderWrapper>
                         <MobileHeaderContainer>
                             <MobileLogoImage src={logo} alt={"image"} onClick={titleOnClickHandler}/>
-                            <NavBox>
+                            <MobileNavBox>
                                 <MobileNav onClick={stockListOnClickHandler}>AI 성과 분석</MobileNav>
+                                <MobileNav onClick={stockListOnClickHandler}>AI 소개</MobileNav>
                                 <MobileNav onClick={portfolioOnClickHandler}>내 포트폴리오</MobileNav>
-                            </NavBox>
+                            </MobileNavBox>
                         </MobileHeaderContainer>
                     </HeaderWrapper>
                 </>

@@ -34,6 +34,14 @@ const Content = styled.p`
     font-family: pretendard;
 `;
 
+const CopyRightContent = styled.p`
+    font-size: 0.8em;
+    line-height: 1.3;
+    color: #000000;
+    opacity: 0.5;
+    font-family: pretendard;
+`;
+
 const Footer = () => {
     const isOverTablet = useMediaQuery({
         query: "(min-width:750px)"
@@ -76,8 +84,11 @@ const Footer = () => {
                         추천과 무관하며, 사용자는 광고에 대해 스스로 판단하셔야 합니다.
                     </Content>
                     <Content>
-                        문의사항 ➤ 개발자 email : yjyjk0127@gmail.com
+                        문의사항 및 조언/피드백 ➤ email : yjyjk0127@gmail.com
                     </Content>
+                    <CopyRightContent>
+                        ⓒ 2024 STOPICKR. ALL rights reserved.
+                    </CopyRightContent>
                 </ContentContainer>
             </FooterWrapper>}
             {isMobile && <MobileFooterWrapper>
@@ -113,8 +124,11 @@ const Footer = () => {
                         추천과 무관하며, 사용자는 광고에 대해 스스로 판단하셔야 합니다.
                     </Content>
                     <Content>
-                        문의사항 ➤ 개발자 email : yjyjk0127@gmail.com
+                        문의사항 및 조언/피드백 ➤ email : yjyjk0127@gmail.com
                     </Content>
+                    <CopyRightContent>
+                        ⓒ 2024 STOPICKR. ALL rights reserved.
+                    </CopyRightContent>
                 </ContentContainer>
             </MobileFooterWrapper>}
         </>);

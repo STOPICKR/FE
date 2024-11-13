@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import {useMediaQuery} from "react-responsive";
+import { motion } from "framer-motion";
+import double_arrow_down from "../../../../../images/double_arrow_down.svg";
 
 const NavSectionWrapper = styled.div`
     display: flex;
@@ -15,8 +17,9 @@ const NavSectionContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5em 0 ;
+    padding: 5em 0  2em 0;
     width: 100%;
+    height: 60vh;
     gap: 0.5em;
 `;
 
@@ -25,8 +28,9 @@ const MobileNavSectionContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3.5em 0;
+    padding: 3.5em 0 1em 0;
     width: 100%;
+    height: 30vh;
     gap: 0.2em;
 `;
 
@@ -62,17 +66,22 @@ const MobileNavContent = styled.p`
     font-family: pretendard;
 `;
 
-const Button = styled.button`
-    padding: 12px 0;
+const Button = styled(motion.div)`
+    text-align: center;
+    padding: 15px 0;
     margin-top: 2em;
     font-size: 16px;
-    width: 40%;
+    width: 25%;
     background-color: #264653;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-family: pretendard-bold;
+    
+    &:hover {
+        background-color: #1454FF;
+    }
 `;
 
 const MobileButton = styled.button`
@@ -88,6 +97,18 @@ const MobileButton = styled.button`
     cursor: pointer;
     font-family: pretendard-bold;
 `;
+
+const Arrow = styled.img`
+    padding-top: 2em;
+    width: 70px;
+    opacity: 0.6;
+`
+
+const MobileArrow = styled.img`
+    padding-top: 2em;
+    width: 40px;
+    opacity: 0.6;
+`
 
 const NavSection = () => {
 
@@ -111,22 +132,20 @@ const NavSection = () => {
                     <NavSectionContainer>
                             <NavTitle style={{color: "#1454FF"}}>{"어려운 주식 투자"}</NavTitle>
                             <NavTitle style={{paddingBottom: "1rem"}}>{"AI 기술과 함께 알아보세요"}</NavTitle>
-                            <NavContent>{"AI 모델 성과 및 수익률 분석\n서비스에서 선정된 산별 현황을 확인해보세요"}</NavContent>
-                            <Button onClick={navigateStockList}>AI 성과 분석 확인하기</Button>
-                        {/*<LogoImage src={Logo} alt={"image"}/>*/}
+                            <NavContent>{"AI 모델 성과 및 수익률 분석\n서비스에서 선정된 자산별 현황을 확인해보세요"}</NavContent>
+                        <Button onClick={navigateStockList}>AI 성과 분석 상세 보기</Button>
+                        <Arrow src={double_arrow_down} alt="double_arrow_down" />
                     </NavSectionContainer>
                 </NavSectionWrapper>
             }
             {isMobile &&
                 <NavSectionWrapper>
                     <MobileNavSectionContainer>
-                        {/*<div>*/}
                             <MobileNavTitle style={{color: "#1454FF"}}>{"어려운 주식 투자"}</MobileNavTitle>
                             <MobileNavTitle style={{paddingBottom: "0.6rem"}}>{"AI 기술과 함께 알아보세요"}</MobileNavTitle>
                             <MobileNavContent>{"AI 모델 성과 및 수익률 분석\n서비스에서 선정된 자산별 현황을 확인해보세요"}</MobileNavContent>
-                            <MobileButton onClick={navigateStockList}>AI 성과 분석 확인하기</MobileButton>
-                        {/*</div>*/}
-                        {/*<MobileLogoImage src={stock_character} alt={"image"}/>*/}
+                            <MobileButton onClick={navigateStockList}>AI 성과 분석 상세 보기</MobileButton>
+                        <MobileArrow src={double_arrow_down} alt="double_arrow_down" />
                     </MobileNavSectionContainer>
                 </NavSectionWrapper>
             }

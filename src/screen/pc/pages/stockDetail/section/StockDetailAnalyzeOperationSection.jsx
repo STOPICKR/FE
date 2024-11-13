@@ -196,7 +196,7 @@ const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
                                 <StockReturnsPercentBox>
                                     <StockReturnsTextBox>
                                         <StockReturnsText>
-                                            {predictionResult.target_date} 추천
+                                            {predictionResult.target_date}
                                         </StockReturnsText>
                                     </StockReturnsTextBox>
                                     <StockReturnsPercentTextBox>
@@ -226,7 +226,7 @@ const StockDetailAnalyzeOperationSection = ({testResult, predictionResult}) => {
                                 <MobileStockReturnsPercentBox>
                                     <MobileStockReturnsTextBox>
                                         <StockReturnsText>
-                                            {predictionResult.target_date} 추천
+                                            {predictionResult.target_date}
                                         </StockReturnsText>
                                     </MobileStockReturnsTextBox>
                                     <StockReturnsPercentTextBox>
